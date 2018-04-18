@@ -8,7 +8,7 @@ public_folder: "/images/uploads"
 collections:
   - name: "post"
     label: "Post"
-    folder: "content/posts"
+    folder: "content/post"
     create: true
     slug: "{{month}}-{{day}}-{{year}}-{{slug}}"
     fields:
@@ -22,7 +22,7 @@ collections:
       
   - name: "note"
     label: "Note"
-    folder: "content/notes"
+    folder: "content/note"
     create: true
     slug: "{{month}}-{{day}}-{{year}}-{{slug}}"
     fields:
