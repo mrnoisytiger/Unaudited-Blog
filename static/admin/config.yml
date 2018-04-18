@@ -19,8 +19,7 @@ collections:
       - {label: "Author", name: "author", widget: "string", default: "Felix Jen"}
       - {label: "Draft", name: "draft", widget: "boolean", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
-
-collections:
+      
   - name: "note"
     label: "Note"
     folder: "content/note"
