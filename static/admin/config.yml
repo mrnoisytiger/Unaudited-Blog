@@ -19,3 +19,16 @@ collections:
       - {label: "Author", name: "author", widget: "string", default: "Felix Jen"}
       - {label: "Draft", name: "draft", widget: "boolean", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
+  - name: "notes"
+    label: "Notes"
+    folder: "content/notes"
+    create: true
+    slug: "{{month}}-{{day}}-{{year}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "date"}
+      - {label: "Feature Image", name: "image", widget: "image", required: false}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Author", name: "author", widget: "string", default: "Felix Jen"}
+      - {label: "Draft", name: "draft", widget: "boolean", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
