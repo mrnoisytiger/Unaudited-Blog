@@ -1,6 +1,6 @@
-baseURL = "https://unaudited.felixjen.com/"
+baseURL = "https://test.inksandpens.com/"
 languageCode = "en-us"
-title = "Unaudited"
+title = "Inks and Pens"
 theme = "pixyll"
 
 author = "Felix Jen"
@@ -8,6 +8,7 @@ enableEmoji = true
 DefaultContentLanguage = "en"
 
 [params]
+  disqus_shortname = "inkoutsidethebottle"
   paginate = 8
 
 copyright = "Copyright (c) 2013-2018, Felix Jen; all rights reserved."
