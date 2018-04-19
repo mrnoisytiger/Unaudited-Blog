@@ -94,6 +94,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-uncss');
     grunt.loadNpmTasks('grunt-shell');
 
-    grunt.registerTask('default',['cssmin','concat_css','processhtml','htmlmin','imagemin','uncss','shell']);
+    grunt.registerTask('default',['cssmin','concat_css','processhtml','htmlmin','imagemin','shell']);
     
 };
