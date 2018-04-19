@@ -13,7 +13,7 @@ type: notes
 
 * Players $ i \in 1..n $
 * For every player $i$, $\exists$ a set of strategies $S_i : s_i \in S_i$
-* $\forall i \land \forall S_i, S = {s_1..s_n} \lor S = {s_i,S_j}: s_j = {s_1, .. s_{i-1}, s_{i+1}, .. s_n}$
+* $\forall i \land \forall S_i, S = \\{s_1..s_n\\} \lor S = \\{s_i,S_j\\}: s_j = \\{s\_1 .. s\_{i-1}, s\_{i+1} .. s_n \\} $
 
 ### Notation
 
@@ -39,7 +39,7 @@ U_2(D,q) = q(0) + (1-q)(-3) &= 3q-3 \end{cases}$$
 
 Since $3q-3 > 4q-5 \ \forall \ q \in [0,1]$, 1 should defect. However, **there is a better choice if they work together**. But, if both are rational and only self interested, they will end in a worse position. In this situation, we say that $D$ strictly dominates $C$ and $C$ is strictly dominated by $D$.
 
-### Remark: Importantance
+### Remark: Importance
 
 We can see that for both players, their dominant strategy would be (D,D). However, this strategy is *Pareto dominated* by another strategy, (C,C). This is a direct counterexample to the previously Adam Smith’s First Welfare Theorem which suggested that com- petitive markets intrinsically tended to the efficient allocation of resources. However, this is not the case in the Prisoner’s dilemma, where the efficient allocation (Pareto dominant) would be (C,C)
 
@@ -64,3 +64,13 @@ U_2(D,D) &= -3 \end{cases} \implies S_2=D $$
 $$ S_1 = C \implies \begin{cases}
 U_2(C,C) &= -1 \\\\\
 U_2(D,C) &= -2 \end{cases} \implies S_2=C $$
+
+Suppose that $P(S_1=C) = p$. Therefore, we have:
+
+$$ \begin{cases}
+U_2(C,p) = p(-1) + (1-p)(-5) &= 4p-5 \\\\\
+U_2(D,p) = p(-2) + (1-p)(-3) &= p-3 \end{cases} \Rightarrow 4p-5 > p-3 \rightarrow 3p>2 \implies $$
+
+$$ \begin{cases}
+p>\frac{2}{3} \implies S_2=C \\\\\
+p<\frac{2}{3} \implies S_2=D \end{cases} $$
