@@ -5,7 +5,7 @@ tags:
   - game theory
 author: Felix Jen
 draft: false
-type: note
+type: notes
 ---
 ## Game Theory Basics
 
