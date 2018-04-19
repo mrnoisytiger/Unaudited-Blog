@@ -193,7 +193,7 @@ $$ \begin{cases}
 L & \text{if heads} \\\\\
 R & \text{if tails} \end{cases} $$
 
-This strategy gives 1.5 no matter that $A$ will end up playing. **This strategy strictly dominates M$.
+This strategy gives 1.5 no matter that $A$ will end up playing. **This strategy strictly dominates** $M$.
 
 ### Theorem
 
