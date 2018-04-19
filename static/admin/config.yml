@@ -33,4 +33,4 @@ collections:
       - {label: "Author", name: "author", widget: "string", default: "Felix Jen"}
       - {label: "Draft", name: "draft", widget: "boolean", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Type", name: "type", widget: "hidden", default: "note"}
+      - {label: "Type", name: "type", widget: "hidden", default: "notes"}
