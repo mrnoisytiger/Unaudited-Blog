@@ -5,17 +5,11 @@ tags:
   - game theory
 author: Felix Jen
 draft: false
-type: notes
+type: note
 ---
 ## Game Theory Basics
 
-\( \require(thmtools) \)
-\( \newtheorem{definition}{Definition}[section] \)
+### Definition: Normal Form Game
 
-$$
-
-\begin{definition}[test]
-testing
-\end{definition}
-
-$$
+* Players \( i \in 1..n \)
+* For every player \( i \), \( \exists \) a set of strategies \(S_i : s_i \in S_i \) 
