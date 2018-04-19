@@ -1,5 +1,5 @@
 {
-    "name": "Unaudited-Blog",
+    "name": "unaudited",
     "version": "0.1.0",
     "devDependencies": {
         "grunt-cli": "latest"
