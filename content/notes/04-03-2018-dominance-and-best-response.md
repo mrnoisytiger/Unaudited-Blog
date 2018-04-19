@@ -126,7 +126,7 @@ Taking another look at our modified Prisoner's Dilemma from earlier:
 
 <img src="/images/uploads/screenshot_2018-04-18 21.40.02_S3hD5Y.jpg" class="thirty">
 
-Let $\sigma_j =: \sigma_j(C) = p$. Therefore
+Let $\sigma_j =: \sigma_j\(C\) = p$. Therefore
 
 $$ U_2(C,\sigma_j) = 4p-5 $$
 $$ U_2(D,\sigma_j) = p-3 $$
@@ -148,7 +148,7 @@ D & p<\frac{2}{3} \\\\\
 
 ### Question
 
-Is there a relationship between strictly dominanted strategies and best responses to a set of beliefs?
+Is there a relationship between strictly dominated strategies and best responses to a set of beliefs?
 
 ### Theorem
 
