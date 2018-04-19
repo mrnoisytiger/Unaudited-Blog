@@ -4,11 +4,11 @@
     "devDependencies": {
         "grunt-cli": "latest",
         "grunt": "latest",
-        "grunt-concat-css": "^0.3.2",
+        "grunt-concat-css": "latest",
         "grunt-contrib-cssmin": "latest",
         "grunt-contrib-htmlmin": "latest",
         "grunt-contrib-imagemin": "latest",
         "grunt-contrib-uglify": "latest",
-        "grunt-processhtml": "^0.4.1"
+        "grunt-processhtml": "latest"
     }
 }
