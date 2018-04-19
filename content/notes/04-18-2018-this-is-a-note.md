@@ -4,6 +4,6 @@ date: '2018-04-18'
 tags:
   - tag
 author: Felix Jen
-type: note
+type: notes
 ---
 this is a note
