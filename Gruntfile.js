@@ -82,6 +82,17 @@ module.exports = function(grunt) {
             dist: {
                 command: 'find public/css/ -not -name "*css" -print0 | xargs -0 rm -rf --'
             }
+        },
+
+        phantomas: {
+            build: {
+                options: {
+                    indexPath: 'public/metrics/',
+                    options: {},
+                    url: 'https://unaudited.felixjen.com',
+                    buildUi: true
+                }
+            }
         }
     });
 
@@ -90,10 +101,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-processhtml');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.loadNpmTasks('grunt-embed-fonts');
     grunt.loadNpmTasks('grunt-uncss');
     grunt.loadNpmTasks('grunt-shell');
+    grunt.loadNpmTasks('grunt-phantomas');
 
-    grunt.registerTask('default',['cssmin','concat_css','processhtml','htmlmin','imagemin','uncss','shell']);
+    grunt.registerTask('default',['cssmin','concat_css','processhtml','htmlmin','imagemin','uncss','shell','phantomas']);
     
 };
