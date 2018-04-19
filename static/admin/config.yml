@@ -19,6 +19,7 @@ collections:
       - {label: "Author", name: "author", widget: "string", default: "Felix Jen"}
       - {label: "Draft", name: "draft", widget: "boolean", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Type", name: "type", widget: "hidden", default: "post"}
   - name: "notes"
     label: "Notes"
     folder: "content/notes"
@@ -32,3 +33,4 @@ collections:
       - {label: "Author", name: "author", widget: "string", default: "Felix Jen"}
       - {label: "Draft", name: "draft", widget: "boolean", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Type", name: "type", widget: "hidden", default: "note"}

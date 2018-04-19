@@ -1,13 +1,11 @@
 ---
 title: Welcome to Unaudited
 date: '2017-01-27'
-image: /images/uploads/img_2858-thumb-1.jpg
 tags:
-  - accessories
-  - leather
-  - pen case
+    - Introduction
 author: Felix Jen
 draft: false
+type: post
 ---
 
 Welcome to Unaudited, a blog where I talk about everything from terrible accounting to terrible technology. I try to be as funny as possible to make you think more of me as a person and we'll see how that turns out. 
