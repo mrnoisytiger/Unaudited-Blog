@@ -84,14 +84,15 @@ module.exports = function(grunt) {
             }
         },
 
-        phantomas: {
-            build: {
+        pagespeed: {
+            dist: {
                 options: {
-                    indexPath: 'public/metrics/',
-                    options: {},
-                    url: 'https://unaudited.felixjen.com',
-                    buildUi: true
-                }
+                    nokey: true,
+                    url: "https://unaudited.felixjen.com/",
+                    locale: "en_US",
+                    strategy: "desktop",
+                    threshold: 70
+                },
             }
         }
     });
@@ -103,8 +104,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-uncss');
     grunt.loadNpmTasks('grunt-shell');
-    grunt.loadNpmTasks('grunt-phantomas');
+    grunt.loadNpmTasks('grunt-pagespeed');
 
-    grunt.registerTask('default',['cssmin','concat_css','processhtml','htmlmin','imagemin','uncss','shell','phantomas']);
+    grunt.registerTask('default',['cssmin','concat_css','processhtml','htmlmin','imagemin','uncss','shell','pagespeed']);
     
 };

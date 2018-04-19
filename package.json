@@ -9,6 +9,7 @@
         "grunt-contrib-htmlmin": "latest",
         "grunt-contrib-imagemin": "latest",
         "grunt-contrib-uglify": "latest",
+        "grunt-pagespeed": "^2.0.1",
         "grunt-phantomas": "^0.14.0",
         "grunt-processhtml": "latest",
         "grunt-shell": "^2.1.0",
