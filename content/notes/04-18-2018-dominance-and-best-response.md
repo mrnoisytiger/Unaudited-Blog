@@ -19,6 +19,8 @@ type: notes
 
 If there are two players, $i \land j \implies U_i(s_i,s_j) \land U_j(s_j,s_i)$. Note that discussions of utility and strategy choices always take the player in perspective as the first argument and the other players are subsequent arguments.
 
+--- 
+
 ## Prisoner's Dilemma
 
 $ \exists i \in {1,2}:$
@@ -74,3 +76,37 @@ U_2(D,p) = p(-2) + (1-p)(-3) &= p-3 \end{cases} \Rightarrow 4p-5 > p-3 \rightarr
 $$ \begin{cases}
 p>\frac{2}{3} \implies S_2=C \\\\\
 p<\frac{2}{3} \implies S_2=D \end{cases} $$
+
+---
+
+## Definitions
+
+### Definition: Strictly Dominates
+
+A strategy $S_i$ strictly dominats $S_i'$ if $\forall S_j \rightarrow U_i(S_i,S_j) > U_i(S_i',S_j)$. In other words, $S_i$ strictly dominates if it is strictly better no matter what the other player does. We can also say that $S_i'$ is strictly dominated by $S_i$.
+
+### Definition: Strictly Dominant
+
+If $S_i$ strictly dominates all other $S_i'$, then $S_i$ is strictly dominant. Note that even if tehre are strategies that strictly dominate another one, that does not mean that there must be a strictly dominant strategy.
+
+Note that you can attempt to identify strictly dominant strategies and eliminate those options, since they are "bad" ways of playing the game. Instead, you can also attempt to find "good" ways of playing the game.
+
+### Definition: Expected Value
+
+Let $X$ be a random variable that takes vlaues $X_i$ with probability $p_i: i \in \\{1..n\\}$. The expected value of $X$ is defined as:
+
+$$ E[X] = p\_1x\_1 + ... + p\_nx\_n $$
+
+### Definition: Belief of Player
+
+A belief of a player $i$ is a probability distribution $\sigma_j \in \Delta(S_j)$ that assigns probability $\sigma_j(S_j)$ to a strategy profile $S_i$. Essentially, you are assigning a weight to the chance of you playing a certain strategy. Given the beliefs, **expected utility** from $S_i$ given $\sigma_j$ is defined as:
+
+$$ U\_i(S\_i,\sigma\_j) = \sum\_{s\_j}{u\_i(s\_i,s\_j) \cdot \sigma\_j(s\_j)} $$
+
+### Best Response
+
+A strategy $s_i$ is a best response to beliefs $\sigma_j$ if it maximizes $E[U_i]$ such that:
+
+$$ U\_i(s\_i,\sigma\_j) \ge U\_i(s\_i',\sigma\_j) \ \forall s_i' $$
+
+If this condition is satisfied, $BR_i(\sigma_j)$ is the set of best responses to $\sigma_j$.
