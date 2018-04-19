@@ -2,7 +2,7 @@
     "name": "unaudited",
     "version": "0.1.0",
     "devDependencies": {
-        "grunt-cli": "latest"
+        "grunt-cli": "latest",
         "grunt": "latest",
         "grunt-concat-css": "^0.3.2",
         "grunt-contrib-cssmin": "latest",
