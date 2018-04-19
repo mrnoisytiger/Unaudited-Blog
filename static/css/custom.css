@@ -97,6 +97,30 @@ a:hover {
     }
 }
 
-.post-content img {
+.post-content img:not(.thirty, .fourty, .fifty) {
     width: 100%;
+}
+
+.thirty {
+    display: block;
+    text-align: center;
+    width: 30%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.fourty {
+    display: block;
+    text-align: center;
+    width: 40%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.fifty {
+    display: block;
+    text-align: center;
+    width: 50%;
+    margin-left:auto;
+    margin-right:auto;
 }

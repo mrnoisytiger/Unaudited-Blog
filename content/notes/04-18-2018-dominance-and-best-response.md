@@ -23,8 +23,44 @@ If there are two players, $i \land j \implies U_i(s_i,s_j) \land U_j(s_j,s_i)$. 
 
 $ \exists i \in {1,2}:$
 
-<img src="/images/uploads/screenshot_2018-04-18-21.22.50_qernxk.jpg" width=250>
+<img src="/images/uploads/screenshot_2018-04-18-21.22.50_qernxk.jpg" class="thirty" width=250>
 
 Suppose that you are Player 1. You will make the following call:
 
-If $S_2=C$, then you will have $\begin{cases}U_1(C,C) &= -1 \\ U_2(D,C) &= 0 \\\end{cases} \implies S_1=D$.
+If $S_2=C$, then you will have: $ \begin{cases} U_1(C,C) &= -1 \\\ U_2(D,C) &= 0\end{cases} \implies S_1=D$
+
+If $S_2=D$, then you will have $ \begin{cases} U_1(C,D) &= -5 \\\ U_2(D,D) &= -3\end{cases} \implies S_1=D$
+
+If you suppose that 1 thinks that $P(S_2=C) = q$ and $P(S_2=D)=1-q$, we have that:
+
+$$ \begin{cases}
+U_1(C,q) = q(-1) + (1-q)(-5) &= 4q-5 \\\\\
+U_2(D,q) = q(0) + (1-q)(-3) &= 3q-3 \end{cases}$$
+
+Since $3q-3 > 4q-5 \ \forall \ q \in [0,1]$, 1 should defect. However, **there is a better choice if they work together**. But, if both are rational and only self interested, they will end in a worse position. In this situation, we say that $D$ strictly dominates $C$ and $C$ is strictly dominated by $D$.
+
+### Remark: Importantance
+
+We can see that for both players, their dominant strategy would be (D,D). However, this strategy is *Pareto dominated* by another strategy, (C,C). This is a direct counterexample to the previously Adam Smith’s First Welfare Theorem which suggested that com- petitive markets intrinsically tended to the efficient allocation of resources. However, this is not the case in the Prisoner’s dilemma, where the efficient allocation (Pareto dominant) would be (C,C)
+
+However, we can solve the prisoner's dilemma through a few possible solutions:
+
+* Binding contracts between parties with third party enforcement (e.g. courts)
+* Repeated Games
+* Adjust the utilities
+
+### Different Utilities
+
+Suppose there is a modified prisoner’s dilemma as follows:
+
+<img src="/images/uploads/screenshot_2018-04-18 21.40.02_S3hD5Y.jpg" class="thirty">
+
+Consider the modification to Player 2’s defect scenario as a cost of defecting. Note that for Player 1, nothing changes and defecting will still be his best strategy. However, we adjust Player’s 2 perspective as follows:
+
+$$ S_1 = D \implies \begin{cases}
+U_2(C,D) &= -5 \\\\\
+U_2(D,D) &= -3 \end{cases} \implies S_2=D $$
+
+$$ S_1 = C \implies \begin{cases}
+U_2(C,C) &= -1 \\\\\
+U_2(D,C) &= -2 \end{cases} \implies S_2=C $$
