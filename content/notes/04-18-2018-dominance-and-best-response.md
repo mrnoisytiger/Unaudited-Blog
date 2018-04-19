@@ -4,7 +4,7 @@ date: '2018-04-18'
 tags:
   - game theory
 author: Felix Jen
-draft: true
+draft: false
 type: note
 ---
 ## Game Theory Basics
