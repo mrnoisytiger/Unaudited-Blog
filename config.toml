@@ -1,4 +1,4 @@
-baseURL = "https://unaudited.felixjen.com/"
+baseURL = "https://unaudited.felixjen.com"
 languageCode = "en-us"
 title = "Unaudited"
 theme = "pixyll"
