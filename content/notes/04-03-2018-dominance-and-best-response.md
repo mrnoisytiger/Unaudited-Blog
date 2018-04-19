@@ -1,6 +1,6 @@
 ---
 title: Dominance and Best Response
-date: '2018-04-18'
+date: '2018-04-03'
 tags:
   - game theory
 author: Felix Jen
