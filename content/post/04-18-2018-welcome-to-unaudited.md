@@ -16,3 +16,7 @@ Felix Jen is a senior UCLA Business Economics major and Accounting minor (2015-2
 ## For Everyone Else
 
 Felix is a cool dude who occasionally has delusions of self-grandeur, mental breakdowns, and a drinking passion (not problem). You can find him looking confused in lecture, dreading his class choices, and wallowing in existential angst.  
+
+## Disclaimer
+
+My lawyer forced me to include this. This blog does not guarantee that the content stated is free from material mistatements. This blog has not been audited by an independent third partner and no opinion is expressed on these statements. 
