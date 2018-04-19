@@ -19,7 +19,11 @@ type: notes
 
 If there are two players, $i \land j \implies U_i(s_i,s_j) \land U_j(s_j,s_i)$. Note that discussions of utility and strategy choices always take the player in perspective as the first argument and the other players are subsequent arguments.
 
---- 
+<br>
+
+---
+
+<br> 
 
 ## Prisoner's Dilemma
 
@@ -77,7 +81,11 @@ $$ \begin{cases}
 p>\frac{2}{3} \implies S_2=C \\\\\
 p<\frac{2}{3} \implies S_2=D \end{cases} $$
 
+<br>
+
 ---
+
+<br>
 
 ## Definitions
 
@@ -110,3 +118,85 @@ A strategy $s_i$ is a best response to beliefs $\sigma_j$ if it maximizes $E[U_i
 $$ U\_i(s\_i,\sigma\_j) \ge U\_i(s\_i',\sigma\_j) \ \forall s_i' $$
 
 If this condition is satisfied, $BR_i(\sigma_j)$ is the set of best responses to $\sigma_j$.
+
+<br><br>
+### Example: Modified Prisoner's Dilemma
+
+Taking another look at our modified Prisoner's Dilemma from earlier:
+
+<img src="/images/uploads/screenshot_2018-04-18 21.40.02_S3hD5Y.jpg" class="thirty">
+
+Let $\sigma_j =: \sigma_j(C) = p$. Therefore
+
+$$ U_2(C,\sigma_j) = 4p-5 $$
+$$ U_2(D,\sigma_j) = p-3 $$
+
+Therefore, we have the following best response:
+
+$$ BR\_2(\sigma\_j) \begin{cases} 
+C & p>\frac{2}{3} \\\\\
+D & p<\frac{2}{3} \\\\\
+[C,D] & p=\frac{2}{3} \end{cases} $$
+
+<br>
+
+---
+
+<br> 
+
+## Relationship between Dominance and Best Response
+
+### Question
+
+Is there a relationship between strictly dominanted strategies and best responses to a set of beliefs?
+
+### Theorem
+
+* If $S_i'$ is strictly dominated by some $S_i$, then it can not a best response to any set of beliefs $\sigma_j$.
+
+#### Proof
+
+Pick any $\sigma_j:$
+
+$$ U\_i(S\_i,\sigma\_j) = \sum\_{s\_j}{u\_i(s\_i,s\_j) \cdot \sigma\_j(s\_j)} $$
+
+Note that $u\_i(s\_i,s\_j) > u\_i(s\_i',s\_j)$ since $s_i$ strictly dominates $s_i'$. Therefore:
+
+$$ U\_i(s\_i,\sigma\_j) > U_i(s\_i',\sigma\_j) $$
+
+Therefore $s_i'$ is not a best response to $\sigma_j$
+
+<br>
+
+### Question
+
+If $s_i'$ is never a best response, it is strictly dominated. 
+
+This question is difficult to answer but an answer can be shown in the following example.
+
+### Example
+
+Suppose the following game:
+
+<img src="/images/uploads/screenshot_2018-04-18 23.37.14_DshRnk.jpg" class="thirty">
+
+for $\sigma_A: \sigma_A(U) =p$.
+
+$$ U\_B(S\_B,\sigma\_A) = \begin{cases}
+3p & S_B=L \\\\\
+1 & S_B = M \\\\\
+3(1-p) & S_B=R \end{cases} $$
+
+We see that $M$ is never considered a best response. However, M is **never** strictly dominated in this game. Consider a mixed strategy by player B chosen by a coin flip s.t.:
+
+$$ \begin{cases}
+L & \text{if heads} \\\\\
+R & \text{if tails} \end{cases} $$
+
+This strategy gives 1.5 no matter that $A$ will end up playing. **This strategy strictly dominates M$.
+
+### Theorem
+
+If $S_i$ is **not** a best response, then it is strictly dominated [possibly] by a mixed strategy.
+
+**Download the PDF <a href="/files/notes/dominance-and-best-response.pdf">here</a>**

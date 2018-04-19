@@ -84,6 +84,11 @@ a:hover {
         font-size:1.1rem;
         font-style:italic;
     }
+
+    .post-content h4{
+        font-size: 1.1rem;
+        font-style: underline;
+    }
 }
 @media (min-width: 480px) {
 
@@ -94,6 +99,11 @@ a:hover {
     .post-content h3{
         font-size:1.5rem;
         font-style:italic;
+    }
+
+    .post-content h4{
+        font-size: 1.1rem;
+        font-style: underline;
     }
 }
 
