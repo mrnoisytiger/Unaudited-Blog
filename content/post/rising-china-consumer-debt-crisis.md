@@ -46,7 +46,7 @@ Despite further tightening being put into place in late '17, such as increased d
     data: {
         labels: ["2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017"],
         datasets: [{
-            label: "Household Debt/GDP - [CEIC]",
+            label: "Household Debt/GDP",
             backgroundColor: 'rgba(7,180,231, 0.2)',
             borderColor: 'rgb(4,125,161)',
             pointRadius: 5,
@@ -66,6 +66,12 @@ Despite further tightening being put into place in late '17, such as increased d
       },
       legend: {
         display: false,
+      },
+      pan: {
+        enabled: true,
+        mode: "xy",
+        speed: 10,
+        threshold: 5,
       }
     },
   });
@@ -100,6 +106,18 @@ Despite further tightening being put into place in late '17, such as increased d
       },
       legend: {
         display: false,
+      },
+      pan: {
+        enabled: true,
+        mode: "x",
+      },
+      scales: {
+          xAxes: [{
+              ticks: {
+                  min: '2007',
+                  max: '2010',
+              }
+          }]
       }
     },
   });
@@ -133,7 +151,8 @@ Despite further tightening being put into place in late '17, such as increased d
       },
       legend: {
         display: false,
-      }
+      },
+      maintainAspectRatio: true,
     },
   });
 </script>
