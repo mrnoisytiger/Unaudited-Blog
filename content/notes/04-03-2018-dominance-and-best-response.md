@@ -178,7 +178,7 @@ This question is difficult to answer but an answer can be shown in the following
 
 Suppose the following game:
 
-<img src="/images/uploads/screenshot_2018-04-18 23.37.14_DshRnk.jpg" class="thirty">
+<img src="/images/uploads/screenshot_2018-04-18 23.37.14_DshRnk.jpg" class="fourty">
 
 for $\sigma_A: \sigma_A(U) =p$.
 
