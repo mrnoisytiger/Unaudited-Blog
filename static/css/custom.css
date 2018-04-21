@@ -11,6 +11,10 @@ a:hover {
     height: 60px;
 }
 
+canvas {
+    padding-bottom: 20px;
+}
+
 /* === FOR THE MAIN PAGE === */
 
 /* Reduce post title size on mobile and desktop */
