@@ -9,5 +9,6 @@ DefaultContentLanguage = "en"
 
 [params]
   paginate = 8
+  google_analytics_id = "UA-118000647-1"
 
 copyright = "Copyright (c) 2013-2018, Felix Jen; all rights reserved."
