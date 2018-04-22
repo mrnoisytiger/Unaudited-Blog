@@ -6,6 +6,8 @@ tags:
 author: Felix Jen
 draft: false
 type: notes
+require:
+  - latex
 ---
 ## Game Theory Basics
 
