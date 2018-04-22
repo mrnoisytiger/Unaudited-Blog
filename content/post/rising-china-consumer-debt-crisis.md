@@ -7,7 +7,7 @@ tags:
 author: Felix Jen
 draft: false
 type: post
-sum: A data-driven view of China's current consumer debt situation
+
 ---
 
 The Chinese consumer market used to be hailed as the epitome of household saving and frugality. Prior to 2010, China was considered a rock, practically immune to major debt effects. These days though, China's increased leverage in their consumer markets paints a very different image, as it may not be the steadfast rock as it once was.
