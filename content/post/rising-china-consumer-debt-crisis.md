@@ -97,7 +97,7 @@ Despite further tightening being put into place in late '17, such as increased d
     options:{
       title: {
         display: true,
-        text: "Real Residential Property Price Index: Beijing - [FRED]",
+        text: "Residential Property Price Index - [FRED]",
         fontFamily: "'Lato','Helvetica Neue',Helvetica,sans-serif",
         fontStyle: "bold",
         fontSize: "20",
@@ -107,20 +107,9 @@ Despite further tightening being put into place in late '17, such as increased d
       legend: {
         display: false,
       },
-      pan: {
-        enabled: true,
-        mode: "x",
-      },
-      scales: {
-          xAxes: [{
-              ticks: {
-                  min: '2007',
-                  max: '2010',
-              }
-          }]
-      }
     },
   });
+
 
   var ctx_three = document.getElementById('consumer-credit').getContext('2d');
   var chart_three = new Chart(ctx_three, {
@@ -142,7 +131,7 @@ Despite further tightening being put into place in late '17, such as increased d
     options:{
       title: {
         display: true,
-        text: "Credit to Households and NPISH (billions of RMB) - [FRED]",
+        text: "Credit to Households (bil. of ¥) - [FRED]",
         fontFamily: "'Lato','Helvetica Neue',Helvetica,sans-serif",
         fontStyle: "bold",
         fontSize: "20",
