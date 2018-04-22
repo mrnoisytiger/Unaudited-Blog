@@ -26,7 +26,7 @@ As echoed by the PBoC, China's home mortage borrowing has already grown extremel
 
 The government has been [doing its best](http://english.gov.cn/news/top_news/2017/02/19/content_281475571888153.htm) to curb the increase of home mortgages, often with buyers purchasing houses as speculative investments rather than actual residences. With increasing restrictions on mortgage lending, such as [higher down payments](http://english.gov.cn/policies/policy_watch/2016/10/25/content_281475474760679.htm) and tighter mortgage conditions, consumers are turning to more expensive lending avenues and, therefore, taking on more systemic risk in their investments. With the surging housing prices though, it is no surprise why real estate investors are willing to bear the increased loan costs as a way to circumvent lending regulations. 
 
-Among these higher cost financial instruments, a major one is general unsecured consumer debt which is not attached to any mortgages. Chinese consumer credit has increased nearly ten times from the low in 2007 of ¥4.2 billion to current ¥38 trillion. 
+Among these higher cost financial instruments, a major one is general unsecured consumer debt which is not attached to any mortgages. Chinese consumer credit has increased nearly ten times from the low in 2007 of ¥4.2 trillion to current ¥38 trillion. 
 
 <canvas id="consumer-credit"></canvas>
 
