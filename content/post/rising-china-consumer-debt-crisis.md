@@ -32,7 +32,19 @@ Among these higher cost financial instruments, a major one is general unsecured 
 
 Despite further tightening being put into place in late '17, such as increased documentation requirements and checks, money is still finding its way into the real estate sector, as we continue to see increased growth in the markets in early '18 data. This is likely due to increased prevalence of shadow banking injecting additional credit into regulated markets. If this growth [were to continue](https://www.bloomberg.com/view/articles/2018-02-15/chinese-consumers-are-building-up-too-much-household-debt), China's Debt/GDP ratio would quickly approach that of the U.S., pre-2008, a situation that is ripe for a burst. 
 
+Not relegated to traditional consumer and mortgage loans, China has also seen an influx of "micro-loans," a loan for a very small amount, often to buy a few products. These loans are frequently given out to corporations like China Rapid Finance, one of an ever growing number of *micro-lending* companies. Previously, they have filled market role of extending credit to the lower class. But, as they become more and more addicted and lose with their spending habits, the regulators are becoming more and more concerned about the lack of regulation and restrictions on these *micro-lending* services. In [December 2017](https://www.reuters.com/article/us-china-regulations-loans/china-cracks-down-on-online-micro-lending-firms-with-new-rules-idUSKBN1DV4OU), Chinese regulators have begun to crack down and tighten restrictions of these services, with unlicensed lenders banned and licensed ones heavily scrutinized. This sudden reduction in the amount of easy-to-obtain credit will surely have negative effects in the future as growth is halted.
+
 ## Outlook
+
+China isn't a stranger to debt issues these days. We've already seen a credit crunch back in 2013 which shot up overnight lending rates to 30%, from the commonplace 3%. Again, China has experienced significant stock market troubles in 2015 and 2016, which led to huge decreases of values of Chinese A-shares, with falls paralleling or exceeding those of '08. In each of these instances, the Chinese regulators have tightened liquidity, stunting economic growth.
+
+With the new 19th Congress's goal of deleveraging Chinese SOE's and consumer markets, we can expect a similar liquidity crunch in the near term. As the Chinese government prepares to crack down, again, on the rise of shadow banking and unregulated loans, consumers are already beginning to curb excessing borrowing. As such, in 2018, housing prices have begun to stabilize. Similarly, many large Chinese companies have been forced to liquidate leveraged FDI (foreign domestic investment) in the U.S., as the Chinese government continues to discourage the practice. 
+
+Tightenings of Chinese SEO's and corporations also predict a coming industrial slowdown, with decreased capital expenditure and infrastructure development. With secondary industry being one of China's largest GDP components, a large shrinkage of this sector will adversely affect China's growth quite significantly.
+
+<canvas id="gdp-sectors"></canvas>
+
+Given these, we can expect China's growth to slow down to a much slower pace of growth, which is in line with President Xi's outlook. As well, we can expect more default incidents, as consumers and corporations attempt to recover from their overleveraging and overextension of credit. Ultimately, there may be short-term spill-over effects into the U.S. markets as growth decelerates abroad. Major overseas real-estate and construction companies will likely bear the brunt of the turmoil, with their heavy reliance on industry and investment. We may also see continued pullback on FDI into the United States and fewer higher profile mergers. China does not appear to have a very large risk of catatrophic collapse like that of 2008, as governmental regulation has already begun to ease overextension and bad credit worries. 
 
 
 
@@ -111,7 +123,7 @@ Despite further tightening being put into place in late '17, such as increased d
     },
   });
 
-
+  // Consumer Credit Graph
   var ctx_three = document.getElementById('consumer-credit').getContext('2d');
   var chart_three = new Chart(ctx_three, {
     // The type of chart we want to create
@@ -144,6 +156,36 @@ Despite further tightening being put into place in late '17, such as increased d
       },
       maintainAspectRatio: true,
     },
+  });
+
+  // GDP Sectors
+  var ctx_four = document.getElementById('gdp-sectors').getContext('2d');
+  var chart_four = new Chart(ctx_four, {
+    // The type of chart we want to create
+    type: 'doughnut',
+    data: {
+      labels: ["Agriculture", "Industry", "Services"],
+      datasets: [{
+        data: [8.2,39.5,52.2],
+        backgroundColor: [
+          'rgba(7,180,231, 0.6)',
+          'rgba(231,7,180,0.6)',
+          'rgba(180,231,7,0.6)',
+        ],
+        label: "GDP by Sector",
+      }],
+    },
+    options: {
+      title: {
+        display: true,
+        text: "GDP by Sector (%) - [IndexMundi]",
+        fontFamily: "'Lato','Helvetica Neue',Helvetica,sans-serif",
+        fontStyle: "bold",
+        fontSize: "20",
+        fontColor: "#000",
+        padding: 10,
+      },
+    }
   });
 </script>
 
