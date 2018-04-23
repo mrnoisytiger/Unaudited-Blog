@@ -5,10 +5,10 @@ tags:
   - china
   - economics
 author: Felix Jen
-draft: false
-type: post
 require:
   - chartjs
+draft: false
+type: post
 ---
 
 The Chinese consumer market used to be hailed as the epitome of household saving and frugality. Prior to 2010, China was considered a rock, practically immune to major debt effects. These days though, China's increased leverage in their consumer markets paints a very different image, as it may not be the steadfast rock as it once was.
@@ -45,7 +45,7 @@ Tightenings of Chinese SEO's and corporations also predict a coming industrial s
 
 <div class="canvas-div-big"><canvas id="gdp-sectors"></canvas></div>
 
-Given these, we can expect China's growth to slow down to a much slower pace of growth, which is in line with President Xi's outlook. As well, we can expect more default incidents, as consumers and corporations attempt to recover from their overleveraging and overextension of credit. Ultimately, there may be short-term spill-over effects into the U.S. markets as growth decelerates abroad. Major overseas real-estate and construction companies will likely bear the brunt of the turmoil, with their heavy reliance on industry and investment. We may also see continued pullback on FDI into the United States and fewer higher profile mergers. China does not appear to have a very large risk of catatrophic collapse like that of 2008, as governmental regulation has already begun to ease overextension and bad credit worries. 
+Given these, we can expect China's growth to slow down to a more manageable pace of growth, which is in line with President Xi's outlook. As well, we can expect more private default incidents, as consumers and corporations attempt to recover from their over-leveraging and overextension of credit. Ultimately, there may be short-term spill-over effects into the U.S. markets as growth decelerates abroad. Major overseas real-estate developers and construction companies will likely bear the brunt of the turmoil, with their heavy reliance on industry and investment. Similarly, we may see bearish moves from Chinese corporations listed on the U.S. markets due to increased government intervention. We may also see continued pullback on FDI into the United States and fewer higher profile mergers. China does not appear to have a very large risk of catatrophic collapse like that of 2008, as governmental regulation has already begun to ease overextension and bad credit worries. 
 
 
 
