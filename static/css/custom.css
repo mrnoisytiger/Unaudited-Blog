@@ -179,3 +179,19 @@ canvas {
         margin-right:auto;
     }
 }
+
+@media screen and (orientation: portrait) and (min-height: 667px) {
+    .canvas-div {
+        position: relative;
+        width: auto;
+        height: 40vh !important;
+    }
+}
+
+@media screen and (orientation: landscape) or (max-height: 666px) {
+    .canvas-div {
+        position: relative;
+        width: auto;
+        height: 45vh !important;
+    }
+}

@@ -17,19 +17,19 @@ The Chinese consumer market used to be hailed as the epitome of household saving
 
 A recent [report](https://www.reuters.com/article/us-china-economy-loans/china-january-new-loans-surge-to-record-2-9-trillion-yuan-blow-past-forecasts-idUSKBN1FW11L) showed that currently, household debt in China has nearly triped from ¥329.4 billion in December to over ¥900 billion in January. Even more troubling is the long term increase of household debt ever since the crisis of 2008 (with Household Debt to GDP of 17.86%) to around 50% as of last year. This rapid growth of household debt is clearly unsustainable.
 
-<canvas id="household-debt-to-gdp"></canvas>
+<div class="canvas-div"><canvas id="household-debt-to-gdp"></canvas></div>
 
 However, this growth in household debt is not entirely unexplainable. Over the past few years, the Chinese Central Government has been pushing increased indebtedness as an effort to boost overall economic growth and consumer spending. The increased levels of leverage in the markets has indeed helped the Chinese economy grow, but the extreme rise in leverage has caught the eyes of the Chinese government. [Pan Gongsheng](http://english.gov.cn/state_council/ministries/2018/03/10/content_281476073052100.htm), VP of the PBoC, has warned that both "home mortage loans and consumer leverage ratio were rising too fast." 
 
 As echoed by the PBoC, China's home mortage borrowing has already grown extremely rapidly over the past few years. With housing prices hitting record highs since Q4 2016, the boom in mortgages is also clear.
 
-<canvas id="beijing-housing"></canvas>
+<div class="canvas-div"><canvas id="beijing-housing"></canvas></div>
 
 The government has been [doing its best](http://english.gov.cn/news/top_news/2017/02/19/content_281475571888153.htm) to curb the increase of home mortgages, often with buyers purchasing houses as speculative investments rather than actual residences. With increasing restrictions on mortgage lending, such as [higher down payments](http://english.gov.cn/policies/policy_watch/2016/10/25/content_281475474760679.htm) and tighter mortgage conditions, consumers are turning to more expensive lending avenues and, therefore, taking on more systemic risk in their investments. With the surging housing prices though, it is no surprise why real estate investors are willing to bear the increased loan costs as a way to circumvent lending regulations. 
 
 Among these higher cost financial instruments, a major one is general unsecured consumer debt which is not attached to any mortgages. Chinese consumer credit has increased nearly ten times from the low in 2007 of ¥4.2 trillion to current ¥38 trillion. 
 
-<canvas id="consumer-credit"></canvas>
+<div class="canvas-div"><canvas id="consumer-credit"></canvas></div>
 
 Despite further tightening being put into place in late '17, such as increased documentation requirements and checks, money is still finding its way into the real estate sector, as we continue to see increased growth in the markets in early '18 data. This is likely due to increased prevalence of shadow banking injecting additional credit into regulated markets. If this growth [were to continue](https://www.bloomberg.com/view/articles/2018-02-15/chinese-consumers-are-building-up-too-much-household-debt), China's Debt/GDP ratio would quickly approach that of the U.S., pre-2008, a situation that is ripe for a burst. 
 
@@ -43,13 +43,16 @@ With the new 19th Congress's goal of deleveraging Chinese SOE's and consumer mar
 
 Tightenings of Chinese SEO's and corporations also predict a coming industrial slowdown, with decreased capital expenditure and infrastructure development. With secondary industry being one of China's largest GDP components, a large shrinkage of this sector will adversely affect China's growth quite significantly.
 
-<canvas id="gdp-sectors"></canvas>
+<div class="canvas-div"><canvas id="gdp-sectors"></canvas></div>
 
 Given these, we can expect China's growth to slow down to a much slower pace of growth, which is in line with President Xi's outlook. As well, we can expect more default incidents, as consumers and corporations attempt to recover from their overleveraging and overextension of credit. Ultimately, there may be short-term spill-over effects into the U.S. markets as growth decelerates abroad. Major overseas real-estate and construction companies will likely bear the brunt of the turmoil, with their heavy reliance on industry and investment. We may also see continued pullback on FDI into the United States and fewer higher profile mergers. China does not appear to have a very large risk of catatrophic collapse like that of 2008, as governmental regulation has already begun to ease overextension and bad credit worries. 
 
 
 
 <script>
+  Chart.defaults.global.responsive = true;
+  Chart.defaults.global.maintainAspectRatio = false;
+
   // Household Debt to GDP graph
   var ctx_one = document.getElementById('household-debt-to-gdp').getContext('2d');
   var chart_one = new Chart(ctx_one, {
@@ -81,12 +84,8 @@ Given these, we can expect China's growth to slow down to a much slower pace of 
       legend: {
         display: false,
       },
-      pan: {
-        enabled: true,
-        mode: "xy",
-        speed: 10,
-        threshold: 5,
-      }
+      responsive: true,
+      maintainAspectRatio: false
     },
   });
 
@@ -155,7 +154,6 @@ Given these, we can expect China's growth to slow down to a much slower pace of 
       legend: {
         display: false,
       },
-      maintainAspectRatio: true,
     },
   });
 
