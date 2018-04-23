@@ -43,7 +43,7 @@ With the new 19th Congress's goal of deleveraging Chinese SOE's and consumer mar
 
 Tightenings of Chinese SEO's and corporations also predict a coming industrial slowdown, with decreased capital expenditure and infrastructure development. With secondary industry being one of China's largest GDP components, a large shrinkage of this sector will adversely affect China's growth quite significantly.
 
-<div class="canvas-div"><canvas id="gdp-sectors"></canvas></div>
+<div class="canvas-div-big"><canvas id="gdp-sectors"></canvas></div>
 
 Given these, we can expect China's growth to slow down to a much slower pace of growth, which is in line with President Xi's outlook. As well, we can expect more default incidents, as consumers and corporations attempt to recover from their overleveraging and overextension of credit. Ultimately, there may be short-term spill-over effects into the U.S. markets as growth decelerates abroad. Major overseas real-estate and construction companies will likely bear the brunt of the turmoil, with their heavy reliance on industry and investment. We may also see continued pullback on FDI into the United States and fewer higher profile mergers. China does not appear to have a very large risk of catatrophic collapse like that of 2008, as governmental regulation has already begun to ease overextension and bad credit worries. 
 

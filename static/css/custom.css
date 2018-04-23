@@ -11,14 +11,10 @@ a:hover {
     height: 60px;
 }
 
-canvas {
-    padding-bottom: 20px;
-}
-
 /* === FOR THE MAIN PAGE === */
 
 /* Reduce post title size on mobile and desktop */
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 319px) and (max-width: 480px) {
   
     .post-title {
         font-size: 1.5rem
@@ -33,7 +29,7 @@ canvas {
 }
 
 /* Sizing of post-summary text for mobile and desktop */
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 319px) and (max-width: 480px) {
   
     .post-summary {
         font-size: 0.9rem
@@ -62,7 +58,7 @@ canvas {
 /* === FOR INDIVIDUAL POSTS === */
 
 /* Reduce post title size */
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 319px) and (max-width: 480px) {
   
     .py2 {
         font-size: 1.5rem;
@@ -79,7 +75,7 @@ canvas {
 }
 
 /* Reduce Heading Sizes */
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 319px) and (max-width: 480px) {
     .post-content h2 {
         font-size: 1.5rem;
     }
@@ -112,7 +108,7 @@ canvas {
 }
 
 /* Reduce post text size */
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 319px) and (max-width: 480px) {
     .post-content p, .post-content li {
         font-size: 1rem;
     }
@@ -129,7 +125,7 @@ canvas {
     width: 100%;
 }
 
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 319px) and (max-width: 480px) {
     .thirty {
         display: block;
         text-align: center;
@@ -180,12 +176,23 @@ canvas {
     }
 }
 
+/* Chart Sizes */
+.canvas-div, .canvas-div-big {
+    padding-bottom: 20px;
+}
+
 @media screen and (orientation: portrait) and (min-height: 667px) {
     .canvas-div {
         position: relative;
         width: auto;
         height: 40vh !important;
     }
+    
+    .canvas-div-big {
+        position: relative;
+        width: auto;
+        height: 50vh !important;
+    } 
 }
 
 @media screen and (orientation: landscape) or (max-height: 666px) {
@@ -194,4 +201,10 @@ canvas {
         width: auto;
         height: 45vh !important;
     }
+    
+    .canvas-div-big {
+        position: relative;
+        width: auto;
+        height: 50vh !important;
+    } 
 }
