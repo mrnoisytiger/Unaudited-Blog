@@ -339,7 +339,7 @@ Comparing Cloudflare and Google normalized, we see that Google's has much less v
 
 ## Inferential Statistics
 
-While descriptive statistics may be fun, the real value from this data set comes from interential statistics. We'll be skipping inferential statistics on the overall data set, as I promise you, it is absolutely useless and gives no additional value. You are free to run it yourself if you wish. We will be focusing on the first 781 observations on both Google and Cloudflare instead. 
+While descriptive statistics may be fun, the real value from this data set comes from inferential statistics. We'll be skipping inferential statistics on the overall data set, as I promise you, it is absolutely useless and gives no additional value. You are free to run it yourself if you wish. We will be focusing on the first 781 observations on both Google and Cloudflare instead. 
 
 To compare these two data sets, we'll run the alternative hypothesis that Cloudflare is faster than Google, $\mu\_\{cf\} < \mu\_\{g\}$ versus the null hypothesis that Cloudflare is **not** faster than Google, $\mu\_\{cf\} \not< \mu\_{g}$. Performing this 2-sample t-test on the data sets, we obtain the following results.
 
@@ -415,14 +415,13 @@ From all the examination of the data we did, we really arrive at an anti-climati
 
 ### Benefits of Cloudflare's DNS
 
-Now that we ultimately concluded that both resolvers are *practically* equally fast from the data, we can example the more quantitative aspects of each. Cloudflare's DNS offers a few key "advantages" over Google's DNS in that it:
+Now that we ultimately concluded that both resolvers are *practically* equally fast from the data, we can example the more quantitative aspects of each. Cloudflare's DNS offers a few key "advantages" in that it:
 
 * Keeps records for only 24 hours of queries run
 * Offers DNS-over-TLS
 * Offers DNS-over-HTTPS
-* More resistant to DDOS attacks
 
-While most of these benefits sound nice, most of them don't really impact much anyways. For those who are privacy conscious, the log rotation is nice. But, if you are truly privacy conscious, you should be using a VPN anyways. Some even offer their own DNS resolvers to increase privacy of their users. Cloudflare's offerings of DNS-over-*something* is also nice to have. However, most, if not all, implementations of either of the two standards offered is poor or nonexistant on the popular operating systems. Currently, Windows and Mac both require third party software to take advantage of those protocols, and even then, support is rather poor. Finally, while Google has been victim to DDOS attacks in the past, those are few and far in the between. As well, users typically do not only have a single DNS server listed, so DDOS's on one would not matter too much. 
+While most of these benefits sound nice, most of them don't really impact much anyways. For those who are privacy conscious, the log rotation is nice. But, if you are truly privacy conscious, you should be using a VPN anyways. Some even offer their own DNS resolvers to increase privacy of their users. Cloudflare's offerings of DNS-over-*something* is also nice to have. However, most, if not all, implementations of either of the two standards offered is poor or nonexistant on the popular operating systems. Currently, Windows and Mac both require third party software to take advantage of those protocols, and even then, support is rather poor. Google's DNS servers also offer DNS-over-HTTPS, so that feature is also not exclusive to Cloudflare. Support for it is still poor though. ~~Finally, while Google has been victim to DDOS attacks in the past, those are few and far in the between. As well, users typically do not only have a single DNS server listed, so DDOS's on one would not matter too much.~~
 
 ## Cloudflare, why?
 
