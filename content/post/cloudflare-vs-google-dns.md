@@ -31,7 +31,7 @@ Given the way RIPE Atlas structure's their network of probes, the amount of prob
 
 ## Results
 
-We can compare the results of these 1,000 probes below. Note that the totals do not add up to 1,000 as some probes failed to respond to the instructions given, and were therefore excluded from the data set. Displayed below is a frequency distribution of RTT's for each DNS server, in intervals of 10ms. As well, major outliers (those with RTT > 200) were eliminated for comparability. Both data sets (Google )
+We can compare the results of these 1,000 probes below. Note that the totals do not add up to 1,000 as some probes failed to respond to the instructions given, and were therefore excluded from the data set. Displayed below is a frequency distribution of RTT's for each DNS server, in intervals of 10ms. As well, major outliers (those with RTT > 200) were eliminated for comparability. Both data sets (Google and Cloudflare) had a total of 963 observations after elimination.
 
 <div class="canvas-div"><canvas id="frequency-dist"></canvas></div>
 <div class="frequency-buttons">
