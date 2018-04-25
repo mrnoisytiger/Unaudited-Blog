@@ -601,13 +601,21 @@ This presents itself with an interesting debacle. Currently, there is large amou
 
 .frequency-buttons p {
     display: inline-block;
-    width: 49%;
+    width: 48%;
     text-align: center;
     font-weight: bold;
     padding: 8px 0px;
     border: 2px solid rgba(4,125,161, 0.6);
     border-radius: 5px;
     cursor: pointer;
+}
+
+.frequency-buttons p:first-of-type {
+    margin-left: 0px;
+}
+
+.frequency-buttons p:nth-of-type(2) {
+    margin-right: -1px;
 }
 
 .current-button-fqd {
