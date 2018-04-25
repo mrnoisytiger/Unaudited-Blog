@@ -426,6 +426,16 @@ One thing we haven't touched on yet is Cloudflare's unique choice of IP address 
 
 This presents itself with an interesting debacle. Currently, there is large amounts of junk traffic being directed at 1.1.1.1 as admins all over use it for scripts or whatnot. Now that Cloudflare actually is using 1.1.1.1, some admins, and even equipment manufacturers, are scrambling to change their configurations. While the admins have *technically* violated the existing IP standard by asssuming the address would never be used, should Cloudflare really have chosen that IP to work with? While the technical standard is there and set in stone, the *effective* and *widely-believed* standard is that the address *is* unusuable. Cloudflare just came and upturned this entire convention. Cloudflare could have chosen any other IP it wanted, but they opted to choose the one which would cause the most headache. Cloudflare, why?
 
+## Disclaimer
+
+For those who want to try their own hand at analysis, the results from the RIPE measurements can be downloaded at the following locations:
+
+Cloudflare: [Here](https://atlas.ripe.net/api/v2/measurements/12281715/results/?format=json)
+
+Google: [Here](https://atlas.ripe.net/api/v2/measurements/12281716/results/?format=json)
+
+As well, you can download the Excel spreadsheet used for analysis [here](/files/post/CF-vs-Google.xlsx). The Office 365 Add-On XLSTAT was used for the all analysis performed. 
+
 <script>
     Chart.defaults.global.responsive = true;
     Chart.defaults.global.maintainAspectRatio = false;
