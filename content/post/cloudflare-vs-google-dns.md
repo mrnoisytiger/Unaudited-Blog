@@ -405,6 +405,10 @@ Initially, the ridiculously high p-value jumps out, suggesting that we have actu
 
 To anyone versed in statistics, this result should surprise no one. The p-value for this alternative hypothesis is merely $1 - p\_{previous}$. We can see that the p-value **is** significant at $\alpha = 10\%$. This is a surprising result, given that Cloudflare claims to be faster. However, just looking at the data we have here, it appears that **Google is actually doing better**. Whether we attribute this to a fluke of the data or Google actually being slightly faster is left as an exercise to the reader.
 
+## Additional Comments
+
+Given the popularity and general usage of Google's DNS, it is clearly being hit many times harder than Cloudflare's resolvers. This may be impacting and obscuring Google's true speed, but even with the load, it is still ever so slightly faster. Unfortunately, this is really impossible to control for, unless Cloudflare attains the same popularity, which is highly doubtable. Therefore, we must simply extrapolate that Google may be even faster, based on intuition alone here.
+
 ## Conclusions
 
 From all the examination of the data we did, we really arrive at an anti-climatic conclusion of sorts. In the frequency distributions, we saw both DNS resolvers performning similarly if looking at the entire spectrum. However, broken down, it appears that Google's resolvers fair better and are more consistent on the lower end of the spectrum. Our 2-sample t-tests do confirm this belief that Google is actually faster on the lowest 781 observations. **However, our results are tempered by the fact that Google's resolvers are only 0.6ms faster on average.** This is an extremely neglible difference and is basically invisble to the user in the grand scheme of things.
