@@ -615,7 +615,8 @@ This presents itself with an interesting debacle. Currently, there is large amou
 }
 
 .frequency-buttons p:nth-of-type(2) {
-    margin-right: -1px;
+    float: right;
+    margin-left: auto;
 }
 
 .current-button-fqd {
