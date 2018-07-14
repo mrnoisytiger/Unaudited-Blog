@@ -38,6 +38,12 @@
         {{ $baseurl := .Site.BaseURL }}
       </div>
 
+      {{ if eq .Params.toc true }}
+      <div id="table-of-contents">
+        {{ .TableOfContents }}
+      </div>
+      {{ end }}
+
       <article class="post-content">
       {{ .Content }}
       </article>
