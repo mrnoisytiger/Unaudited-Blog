@@ -193,6 +193,12 @@ a:hover {
         width: auto;
         height: 50vh !important;
     } 
+
+    .canvas-div-xl {
+        position: relative;
+        width: auto;
+        height: 55vh !important;
+    }
 }
 
 @media screen and (orientation: landscape) {
@@ -206,7 +212,23 @@ a:hover {
         position: relative;
         width: auto;
         height: 50vh !important;
-    } 
+    }
+
+    .canvas-div-xl {
+        position: relative;
+        width: auto;
+        height: 60vh !important;
+    }
+}
+
+@media screen and (orientation: landscape)  
+and (min-width: 375px) 
+and (max-width: 667px) {
+    .canvas-div-xl {
+        position: relative;
+        width: auto;
+        height: 90vh !important;
+    }
 }
 
 /* Table of Contents */

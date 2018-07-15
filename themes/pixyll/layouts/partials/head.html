@@ -39,5 +39,14 @@
   <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}/css/custom.css">
   {{ "<!-- /build -->" | safeHTML }}
 
+  {{ range $library := .Params.require }}
+  {{ if eq $library "jquery" }}
+    <script   src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>  
+  {{ end }}
+
+  {{ if eq $library "fontawesome" }}
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  {{end }}
+  {{ end }}
 </head>
 <body class="">

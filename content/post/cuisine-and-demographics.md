@@ -9,6 +9,8 @@ author: Felix Jen
 require:
   - chartjs
   - latex
+  - jquery
+  - fontawesome
 toc: true
 draft: true
 type: post
@@ -68,16 +70,46 @@ With those considerations resolves, the Yelp API was scraped for the 50 zip code
 
 The following graphs represent a Per-Zip-Code comparison of the percent of restaurants per race, and the percent of calculated population per race.
 
-<div class="canvas-div"><canvas id="per-zip-comparison"></canvas></div>
+<div class="lr-select">
+  <i class="fas fa-arrow-left" id="left-arrow-zip-code"></i>
+  <p id="current-zip-code"></p>
+  <i class="fas fa-arrow-right" id="right-arrow-zip-code"></i>
+</div>
+<div class="canvas-div-xl"><canvas id="per-zip-comparison"></canvas></div>
+
+Upon initial examine, we notice two major things. The majority of the restaurant data tends to look pretty similar, while the population data tends to vary wildly. As well, we notice that there are some places with shocking correlation, e.g. 90024, where there are also a great deal that completely miss the mark.
+
+<!-- Examine this data closer -->
 
 
 
 
 
+<script src="/js/post/cuisine-and-demographics.js" type="text/javascript"></script>
 
-<script>
-    Chart.defaults.global.responsive = true;
-    Chart.defaults.global.maintainAspectRatio = false;
+<style>
+.lr-select {
+  text-align: center;
+}
 
-    
-</script>
+.lr-select i, .lr-select p {
+  display: inline-block;
+  text-align: center;
+  line-height: 48px;
+  transition: 0.2s;
+}
+
+.lr-select p {
+  padding: 0px 30px;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.lr-select i:hover {
+  cursor: pointer;
+}
+
+.lr-select i:first-child {
+  color: lightgrey;
+}
+</style>
