@@ -126,6 +126,8 @@ After seeing the per-zip-code data, it makes sense to dive into the predictive v
 
 Looking at our five races, we do indeed see upwards correlations for most of the sets, which agrees with our initial intuition—An area with more _____ cuisine would have more _____ people. However, the differing strengths in the correlation are also pretty clear. At a cursory glance, the `Asian` and `Hispanic` races exhibit strong upwards correlations between the percentage of restaurants and percentage of the population. This trend is much weaker for the `Black` and `Pacific Islander` races, possibly due to their dimunitive number of [categories allocated](#restaurant-ethnicity).
 
+#### Regression Analysis 
+
 To get a better sense of these exact trends, simple linear regressions were performed between the `Restaurant %` and `Population %`, taking the `Restaurant %` to be the independent variable. The results are summarized in the table below.
 
 <table id="simple-linear-reg">
