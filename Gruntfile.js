@@ -24,6 +24,17 @@ module.exports = function(grunt) {
             },
         },
 
+        uglify: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: 'public/js',
+                    src: ["**/*.js"],
+                    dest: 'public/js',
+                }]
+            },
+        },
+
         processhtml: {
             build: {
                 options: {
@@ -99,6 +110,7 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-concat-css');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-processhtml');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
@@ -106,6 +118,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-pagespeed');
 
-    grunt.registerTask('default',['cssmin','concat_css','processhtml','htmlmin','imagemin','uncss','shell','pagespeed']);
+    grunt.registerTask('default',['cssmin','concat_css','uglify','processhtml','htmlmin','imagemin','uncss','shell','pagespeed']);
     
 };
