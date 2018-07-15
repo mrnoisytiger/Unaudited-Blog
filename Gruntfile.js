@@ -27,10 +27,7 @@ module.exports = function(grunt) {
         uglify: {
             dist: {
                 options: {
-                    mangle: {
-                        properties: true,
-                        reserved: ['jQuery', 'Chart']
-                    },
+                    mangle: false
                 },
                 files: [{
                     expand: true,
