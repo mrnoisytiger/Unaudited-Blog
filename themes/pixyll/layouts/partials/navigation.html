@@ -1,7 +1,7 @@
 <a href="{{ .Site.BaseURL }}{{ .Site.LanguagePrefix }}/">{{ i18n "blog" }}</a>
 <a href="{{ .Site.BaseURL }}{{ .Site.LanguagePrefix }}/notes/">{{ i18n "notes" }}</a>
-<a href="{{ .Site.BaseURL }}{{ .Site.LanguagePrefix }}/tags/">{{ i18n "tags" }}</a>
-<a href="{{ .Site.BaseURL }}{{ .Site.LanguagePrefix }}/contact/">{{ i18n "contact" }}</a>
+<!--<a href="{{ .Site.BaseURL }}{{ .Site.LanguagePrefix }}/tags/">{{ i18n "tags" }}</a>
+<a href="{{ .Site.BaseURL }}{{ .Site.LanguagePrefix }}/contact/">{{ i18n "contact" }}</a> -->
 {{- if .Site.IsMultiLingual -}}
 {{- range $lang := .Site.Languages -}}
 {{- if ne $.Site.Language $lang -}}
