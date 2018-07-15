@@ -9,6 +9,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
   {{ end }}
 
+  {{ if eq $library "chartjs-datalabels" }}
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.3.0"></script>
+  {{ end }}
+  
   <!-- Include MathJAX Library -->
   {{ if eq $library "latex" }}
     <script type="text/x-mathjax-config">
@@ -25,6 +29,7 @@
     </script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS_HTML' async></script>
   {{end}}
+
 
 {{ end }}
 
