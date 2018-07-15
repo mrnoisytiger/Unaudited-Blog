@@ -12,6 +12,7 @@ require:
   - latex
   - jquery
   - fontawesome
+  - jstat
 toc: true
 draft: false
 type: post
@@ -122,6 +123,51 @@ After seeing the per-zip-code data, it makes sense to dive into the predictive v
   <i class="fas fa-arrow-right" id="right-arrow-race"></i>
 </div>
 <div class="canvas-div-xl"><canvas id="per-race-comparison"></canvas></div>
+
+Looking at our five races, we do indeed see upwards correlations for most of the sets, which agrees with our initial intuition—An area with more _____ cuisine would have more _____ people. However, the differing strengths in the correlation are also pretty clear. At a cursory glance, the `Asian` and `Hispanic` races exhibit strong upwards correlations between the percentage of restaurants and percentage of the population. This trend is much weaker for the `Black` and `Pacific Islander` races, possibly due to their dimunitive number of [categories allocated](#restaurant-ethnicity).
+
+To get a better sense of these exact trends, simple linear regressions were performed between the `Restaurant %` and `Population %`, taking the `Restaurant %` to be the independent variable. The results are summarized in the table below.
+
+<table id="simple-linear-reg">
+<tr>
+  <th>Race</th>
+  <th>Slope</th>
+  <th>Intercept</th>
+  <th>$R^2$</th>
+</tr>
+<tr id="simple-linear-reg-white">
+  <td>White</td>
+  <td class="lin-reg-slope"></td>
+  <td class="lin-reg-int"></td>
+  <td class="lin-req-r2"></td>
+</tr>
+<tr id="simple-linear-reg-asian">
+  <td>Asian</td>
+  <td class="lin-reg-slope"></td>
+  <td class="lin-reg-int"></td>
+  <td class="lin-req-r2"></td>
+</tr>
+<tr id="simple-linear-reg-black">
+  <td>Black</td>
+  <td class="lin-reg-slope"></td>
+  <td class="lin-reg-int"></td>
+  <td class="lin-req-r2"></td>
+</tr>
+<tr id="simple-linear-reg-api">
+  <td>Pac. Isl.</td>
+  <td class="lin-reg-slope"></td>
+  <td class="lin-reg-int"></td>
+  <td class="lin-req-r2"></td>
+</tr>
+<tr id="simple-linear-reg-hispanic">
+  <td>Hispanic</td>
+  <td class="lin-reg-slope"></td>
+  <td class="lin-reg-int"></td>
+  <td class="lin-req-r2"></td>
+</tr>
+</table><br>
+
+These regressions indeed agree with our initial expectation from the data. There is indeed a positive trend between an area's cuisine profile and race profile. Similarly, we see that `Asian` has the highest correlation where `Pacific Islander` has close to no correlation. Ultimately, the percentage of `Pacific Islander` in the population data was simply too low for a meaningful correlation to have developed. 
 
 **Note: Not yet complete**
 
