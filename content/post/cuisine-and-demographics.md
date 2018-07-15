@@ -16,7 +16,7 @@ draft: false
 type: post
 ---
 
-Often times, we go to a town we've never been to and notice, "There are a lot of Asian restaurants here!" Does that have a tendency to correlate to there actually being a lot of Asian people in the area? The same can be asked about any other cuisine and its associated race. Upon initial thought, one would agree that there should indeed be a pretty close correlation. Otherwise, who else would be eating there, cooking there, etc...? It's pretty clear that ethnicity would prefer their own cuisine as opposed to others. Therefore one would expect the spread of restaurants across race to somewhat mimic that of the racial profile of the population in the area. This post seeks to examine the possible link between these two, or lack thereof.
+Oftentimes, we go to a town we've never been to and notice, "There are a lot of Asian restaurants here!" Does that have a tendency to correlate to there actually being a lot of Asian people in the area? The same can be asked about any other cuisine and its associated race. Upon initial thought, one would agree that there should indeed be a pretty close correlation. Otherwise, who else would be eating there, cooking there, etc...? It's pretty clear that ethnicity would prefer their own cuisine as opposed to others. Therefore one would expect the spread of restaurants across race to somewhat mimic that of the racial profile of the population in the area. This post seeks to examine the possible link between these two, or lack thereof.
 
 ## Methodology
 
