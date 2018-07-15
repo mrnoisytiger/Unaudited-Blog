@@ -146,6 +146,7 @@ After seeing the per-zip-code data, it makes sense to dive into the predictive v
   padding: 0px 30px;
   font-size: 1.1em;
   font-weight: 600;
+  width: 130px;
 }
 
 .lr-select i:hover {

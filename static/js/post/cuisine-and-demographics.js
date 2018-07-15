@@ -137,7 +137,7 @@ function initialize_per_zip_data(zip) {
         options:{
             title: {
                 display: true,
-                text: "Percentage Data",
+                text: "Per Zip Code Data",
                 fontFamily: "'Lato','Helvetica Neue',Helvetica,sans-serif",
                 fontStyle: "bold",
                 fontSize: "20",
