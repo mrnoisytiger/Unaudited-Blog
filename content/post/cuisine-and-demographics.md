@@ -12,7 +12,7 @@ require:
   - jquery
   - fontawesome
 toc: true
-draft: true
+draft: false
 type: post
 ---
 
