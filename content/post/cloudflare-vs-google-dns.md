@@ -9,6 +9,7 @@ author: Felix Jen
 require:
   - chartjs
   - latex
+toc: true
 draft: false
 type: post
 ---
