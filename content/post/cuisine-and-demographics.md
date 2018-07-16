@@ -197,10 +197,9 @@ These regressions indeed agree with our initial expectation from the data. There
 }
 
 .lr-select p {
-  padding: 0px 30px;
   font-size: 1em;
   font-weight: 600;
-  width: 160px;
+  width: 185px;
 }
 
 .lr-select .two-line-arrow {
