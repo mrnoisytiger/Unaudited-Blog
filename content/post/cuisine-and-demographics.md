@@ -28,7 +28,7 @@ A comparison of these two factors require two major data sets, restaurant ethnic
 
 For controllability and to avoid ambiguity, an "area" was defined to be the confines a single U.S. Postal Service 5-digit ZIP Code. These areas are standardized across the U.S. and all data sources and are a natural choice for selection of an area. Additionally, the other data sources used play well with zip codes, allowing an area to be specified directly and limiting the search to the area.
 
-The initial plan was to gather data from all ZIP codes in the U.S. as well as Minor Outlying Territories. However, this proved to be a too daunting of a task, with over 46,000 ZIP codes to consider. Other data sources were serverely rate limited so such a query would have taken prohibitively long. As an alternative, the 50 most populous cities in the U.S. was chosen, using data from [MapsZipCode](http://www.mapszipcode.com/reports/largest+population/). This is not the largest data set by far, but it does the trick for now. Later on, the data set may be expanded using data from [Localistca](http://localistica.com/usa/zipcodes/most-populated-zipcodes/).
+The initial plan was to gather data from all ZIP codes in the U.S. as well as Minor Outlying Territories. However, this proved to be a too daunting of a task, with over 46,000 ZIP codes to consider. Other data sources were serverely rate limited so such a query would have taken prohibitively long. As an alternative, the 50 most populous cities in the U.S. was chosen, using data from [MapsZipCode](http://www.mapszipcode.com/reports/largest+population/). An additional 40 random zip codes were generated from [RandomLists](https://www.randomlists.com/random-zip-codes?qty=20&dup=false) to increase our sample size. This is not the largest data set by far, but it does the trick for now. Later on, the data set may be expanded using data from [Localistca](http://localistica.com/usa/zipcodes/most-populated-zipcodes/).
 
 ### Race
 
@@ -94,11 +94,11 @@ Next, while Yelp does have category data for each of its restaurants listed, thi
 
 A similar issue arises if a restaurant crosses multiple categories and happens to traverse multiple races. What if a restaurant serves both Asian and Mexican food or is some kind of modern fusion between the two? In those cases, those restaurants were considered to exist in *both* categories. Therefore, some of the data in each zip code may appear to show more than 1,000 restaurants total, but this is merely an artifact of the classification done. One may ask why such a choice was made, to consider a restaurant in more than one race. To answer that, we look back at our existing question, whether cuisine correlates to race. If a restaurant crosses into more than one racial type, an assumption was made (may be presumptuous) that each racial type represented would be equally likely to eat at the restaurant, and that the restaurant panders to each of those races.
 
-With those considerations resolves, the Yelp API was scraped for the 50 zip codes discussed previously. The results were then processed and cataloged into the races discussed in the above section and the results tallied up. Again, given the possibility of multiple races being assigned to a single restaurant, some zip codes may have more than 1000 data points. 
+With those considerations resolves, the Yelp API was scraped for the 90 zip codes discussed previously. The results were then processed and cataloged into the races discussed in the above section and the results tallied up. Again, given the possibility of multiple races being assigned to a single restaurant, some zip codes may have more than 1000 data points. 
 
-## Graphs and Data
+## Initial Graphs and Data
 
-Let's first look directly at some of the data gathered. We can compare the data across two major dimensions, the zip codes and race. We begin by examining the differences between the 50 zip codes used, to get an overview of what we are looking at. 
+Let's first look directly at some of the data gathered. We can compare the data across two major dimensions, the zip codes and race. We begin by examining the differences between the 90 zip codes used, to get an overview of what we are looking at. 
 
 ### Per-ZIP-Code Comparison
 
@@ -126,7 +126,7 @@ After seeing the per-zip-code data, it makes sense to dive into the predictive v
 </div>
 <div class="canvas-div-xl"><canvas id="per-race-comparison"></canvas></div>
 
-Looking at our five races, we do indeed see upwards correlations for most of the sets, which agrees with our initial intuition—An area with more _____ cuisine would have more _____ people. However, the differing strengths in the correlation are also pretty clear. At a cursory glance, the `Asian` and `Hispanic` races exhibit strong upwards correlations between the percentage of restaurants and percentage of the population. This trend is much weaker for the `Black` and `Pacific Islander` races, possibly due to their dimunitive number of [categories allocated](#restaurant-ethnicity).
+Looking at our five races, we do indeed see upwards correlations for most of the sets, which agrees with our initial intuition—An area with more _____ cuisine would have more _____ people. However, the differing strengths in the correlation are also pretty clear. At a cursory glance, the `White`, `Asian` and `Hispanic` races exhibit strong upwards correlations between the percentage of restaurants and percentage of the population. This trend is much weaker for the `Black` and `Pacific Islander` races, possibly due to their dimunitive number of [categories allocated](#restaurant-ethnicity).
 
 #### Regression Analysis 
 
@@ -171,7 +171,42 @@ To get a better sense of these exact trends, simple linear regressions were perf
 </tr>
 </table><br>
 
-These regressions indeed agree with our initial expectation from the data. There is indeed a positive trend between an area's cuisine profile and race profile. Similarly, we see that `Asian` has the highest correlation where `Pacific Islander` has close to no correlation. Ultimately, the percentage of `Pacific Islander` in the population data was simply too low for a meaningful correlation to have developed. 
+These regressions indeed agree with our initial expectation from the data. There is indeed a positive trend between an area's cuisine profile and race profile. Similarly, we see that `Hispanic` has the highest correlation where `Pacific Islander` has close to no correlation. Ultimately, the percentage of `Pacific Islander` in the population data was simply too low for a meaningful correlation to have developed. 
+
+#### Residual Analysis
+
+Now that we have our linear regression data complete, we can perform a quick residual analysis using scatterplots to ensure that a linear model is appropriate for our data. Those are scatterplots are shown below.
+
+<div class="lr-select">
+  <button><i class="fas fa-arrow-left" id="left-arrow-race-resid"></i></button>
+  <p id="current-race-resid"></p>
+  <button><i class="fas fa-arrow-right" id="right-arrow-race-resid"></i></button>
+</div>
+<div class="canvas-div-xl"><canvas id="per-race-resid-comparison"></canvas></div>
+
+Looking at these scatterplots, we notice a very stark trend in the `Asian` race that will have to be addressed later. Likely, the linear regression we used for the `Asian` data set is actually not a good fit, and another nonlinear regression may be better suited. Additionally, we notice a small cluster of points for the `Pacific Islander` race, but once again, we attribute this to the dimuinitive size and data set for that race.
+
+## Cross Racial Analysis
+
+In the previous section, we looked to see if there were any trends among a specific race's percentage in the cuisine profile and the area's racial profile. In this section, we will extend our analysis to identify if there are any cross-racial effects, such as between the percentage of `Asian` restaurants versus the percentage of `White` in the population. Our intuition tells us that such effects should generally be unlikely, or at least result in a typically negative trend. 
+
+### Cross Racial Scatterplots
+
+For examination of cross racial effects, we first take a look another similar scatterplot to what we saw earlier. However, instead of choosing a singular race to look at across both axes, the choice of races for each axis is broken apart. The first choice would be for the `X-axis` (Restaurant %) and the second choice for the `Y-axis` (Population %). This should result in a total of 25 unique scatterplots.
+
+<div class="lr-select">
+  <button><i class="fas fa-arrow-left" id="left-arrow-cross-race-x"></i></button>
+  <p id="current-cross-race-x"></p>
+  <button><i class="fas fa-arrow-right" id="right-arrow-cross-race-x"></i></button>
+</div>
+<div class="lr-select">
+  <button><i class="fas fa-arrow-left" id="left-arrow-cross-race-y"></i></button>
+  <p id="current-cross-race-y"></p>
+  <button><i class="fas fa-arrow-right" id="right-arrow-cross-race-y"></i></button>
+</div>
+<div class="canvas-div-xl"><canvas id="cross-race-scatterplot"></canvas></div>
+
+Flipping through these scatterplots, our initial suspicion is generally confirmed. We do indeed notice a slight negative trend among the cross race data while intra-race data shows a positive trend. Armed with this bit of knowledge, 
 
 **Note: Not yet complete**
 

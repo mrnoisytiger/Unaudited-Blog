@@ -12,6 +12,8 @@ var race_map_list = { // A mapping of the race keys to English
 var chart_one; // Category to Race Doughnut
 var chart_two; // Per Zip Radar
 var chart_three; // Per-Race Scatterplot
+var chart_four; // Residuals Scatterplot
+var chart_five; // Cross Race Scatterplot
 
 
 // The next block is used to selectively enable the chartjs "Datalabels" plugin which shows datapoints within the chart.
@@ -43,7 +45,9 @@ $(document).ready(function() {
             initialize_cat_to_dem_data(); // Category to Race Doughnut
             initialize_per_zip_data(zips_list[0]); // Per-Zip Code Radar
             initialize_per_race_data(race_list[0]); // Per-Race Scatterplot
-            initialize_slr_data();
+            initialize_slr_data(); // Simple Linear Regression uni-variable
+            initialize_race_resid_data(race_list[0]); //
+            initialize_cross_race_data(race_list[0],race_list[0]);
         });
     });
 
@@ -60,17 +64,31 @@ $(document).ready(function() {
     $("#left-arrow-race").click(function() {
         per_race_buttons_change('left')
     });
-
-    $('body, html').dblclick(function() {
-        event.preventDefault();
-    })
+    $("#right-arrow-race-resid").click(function() {
+        per_race_resid_buttons_change('right')
+    });
+    $("#left-arrow-race-resid").click(function() {
+        per_race_resid_buttons_change('left')
+    });
+    $("#left-arrow-cross-race-x").click(function() {
+        cross_race_buttons_scatter_change('left','x')
+    });
+    $("#right-arrow-cross-race-x").click(function() {
+        cross_race_buttons_scatter_change('right','x')
+    });
+    $("#left-arrow-cross-race-y").click(function() {
+        cross_race_buttons_scatter_change('left','y')
+    });
+    $("#right-arrow-cross-race-y").click(function() {
+        cross_race_buttons_scatter_change('right','y')
+    });
 });
 
 
 
 // Initialize the graphs. Here's where the actual code begins.
 
-/// Initialize the graph for the categories doughnut chart
+// Initialize the graph for the categories doughnut chart
 function initialize_cat_to_dem_data() {
     var ctx_one = document.getElementById('cats-to-dem').getContext('2d');
     chart_one = new Chart(ctx_one, {
@@ -227,6 +245,7 @@ function initialize_per_race_data(race) {
     })
 }
 
+// Initialize the simple uni-variable linear regression
 function initialize_slr_data() {
     for ( var i = 0; i < race_list.length; i++ ) {
         race = race_list[i];
@@ -251,6 +270,109 @@ function initialize_slr_data() {
         table_race.find('.lin-req-r2').html(reg.R2.toFixed(3));
 
     }
+}
+
+function initialize_race_resid_data(race) {
+    $('#current-race-resid').attr('data-current-race-resid', race);
+    $('#current-race-resid').html(race_map_list[race]);
+    var per_race_resid_data = [];
+    get_per_race_resid_data(race,per_race_resid_data);
+
+    var ctx_four = document.getElementById('per-race-resid-comparison').getContext('2d');
+    chart_four = new Chart(ctx_four, {
+        type: 'scatter',
+        data: {
+            datasets: [{
+                label: "Race",
+                data: per_race_resid_data,
+                backgroundColor: 'rgba(7,180,231, 0.6)',
+                pointRadius: 5,
+            }],
+        },
+        options: {
+            title: {
+                display: true,
+                text: "Per Race Residuals Data",
+                fontFamily: "'Lato','Helvetica Neue',Helvetica,sans-serif",
+                fontStyle: "bold",
+                fontSize: "20",
+                fontColor: "#000",
+                padding: 10,
+            },
+            legend: {
+                display: false
+            },
+            scales: {
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Residuals',
+                        fontSize: 14
+                    }
+                }],
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Restaurant %',
+                        fontSize: 14
+                    }
+                }],
+            }
+        }
+    })
+}
+
+function initialize_cross_race_data(race_x,race_y) {
+    $('#current-cross-race-x').attr('data-current-cross-race-x', race_x);
+    $('#current-cross-race-y').attr('data-current-cross-race-y', race_y);
+    $('#current-cross-race-x').html(race_map_list[race_x]);
+    $('#current-cross-race-y').html(race_map_list[race_y]);
+
+    var cross_race_data = [];
+    get_cross_race_data(race_x,race_y,cross_race_data);
+
+    var ctx_five = document.getElementById('cross-race-scatterplot').getContext('2d');
+    chart_five = new Chart(ctx_five, {
+        type: 'scatter',
+        data: {
+            datasets: [{
+                label: "Race",
+                data: cross_race_data,
+                backgroundColor: 'rgba(7,180,231, 0.6)',
+                pointRadius: 5,
+            }],
+        },
+        options: {
+            title: {
+                display: true,
+                text: "Cross Race Data",
+                fontFamily: "'Lato','Helvetica Neue',Helvetica,sans-serif",
+                fontStyle: "bold",
+                fontSize: "20",
+                fontColor: "#000",
+                padding: 10,
+            },
+            legend: {
+                display: false
+            },
+            scales: {
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Population % (' + race_map_list[race_y] + ')',
+                        fontSize: 14
+                    }
+                }],
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Restaurant % (' + race_map_list[race_x] + ')',
+                        fontSize: 14
+                    }
+                }],
+            }
+        }
+    });
 }
 
 // Function to handle the updating of the per-zip-code chart. Does not actually do the calculations. Takes in a value of the target zip code you want and the chart to change, and passes them to the calculator function. The calculator function then populates empty data variables and returns those. The original chart specified is then updated using those new data variables. Helpers are also updated.
@@ -281,6 +403,33 @@ function change_per_race_data(race, chart) {
 
     chart.data.datasets[0].data = data_var;
     chart.update();
+}
+
+function change_per_race_resid_data(race, chart) {
+    $('#current-race-resid').attr('data-current-race-resid', race);
+    $('#current-race-resid').html(race_map_list[race]);
+    
+    var data_var = [];
+    get_per_race_resid_data(race,data_var);
+
+    chart.data.datasets[0].data = data_var;
+    chart.update();
+}
+
+function change_cross_race_scatter_data(race_x, race_y, chart) {
+    $('#current-cross-race-x').attr('data-current-cross-race-x', race_x);
+    $('#current-cross-race-y').attr('data-current-cross-race-y', race_y);
+    $('#current-cross-race-x').html(race_map_list[race_x]);
+    $('#current-cross-race-y').html(race_map_list[race_y]);
+
+    var data_var = []
+    get_cross_race_data(race_x,race_y,data_var);
+
+    chart.data.datasets[0].data = data_var;
+    chart.update();
+    chart.options.scales.yAxes[0].scaleLabel.labelString = 'Population % (' + race_map_list[race_y] + ')';
+    chart.options.scales.xAxes[0].scaleLabel.labelString = 'Population % (' + race_map_list[race_x] + ')';
+
 }
 
 // Calculator function for the per-zip-code radar charts. First gets the totals from both the Yelp and Population data. Then, for the specified zip code, we calculate the percentage for each race (using a helper function) of the total to two decimal places and store it in the empty data variables specified. 
@@ -314,6 +463,47 @@ function get_per_race_data(race, data_var) {
             'y': race_pop_percent,
         }
         
+        data_var.push(data_point);
+    }
+}
+
+function get_per_race_resid_data(race, data_var) {
+    var exog = [];
+    var endog = [];
+
+    for ( var zip in pop_data ) {
+        perc_race_pop = toPercent(pop_data[zip]['population'][race],pop_data[zip]['population']['total'])
+        endog.push( perc_race_pop );
+
+        perc_race_yelp = toPercent(yelp_data[zip]['restaurants'][race], yelp_data[zip]['restaurants']['total'])
+        exog.push([1,perc_race_yelp]);
+    }
+
+    var reg=jStat.models.ols(endog, exog);
+
+    for ( var zip in pop_data ) {
+        var race_yelp_percent = toPercent( yelp_data[zip]['restaurants'][race],yelp_data[zip]['restaurants']['total'] );
+        var race_resid = toPercent( pop_data[zip]['population'][race],pop_data[zip]['population']['total'] ) - ( reg.coef[1] * race_yelp_percent + reg.coef[0]);
+
+        var data_point = {
+            'x': race_yelp_percent,
+            'y': race_resid,
+        }
+
+        data_var.push(data_point);
+    }
+}
+
+function get_cross_race_data(race_x, race_y, data_var) {
+    for (var zip in yelp_data ) {
+        var race_x_yelp_percent = toPercent ( yelp_data[zip]['restaurants'][race_x], yelp_data[zip]['restaurants']['total'] );
+        var race_y_pop_percent = toPercent( pop_data[zip]['population'][race_y],pop_data[zip]['population']['total'] );
+
+        var data_point = {
+            'x': race_x_yelp_percent,
+            'y': race_y_pop_percent,
+        }
+
         data_var.push(data_point);
     }
 }
@@ -366,6 +556,81 @@ function per_race_buttons_change(direction) {
             change_per_race_data(race_list[current_race_index + 1], chart_three);
             $("#left-arrow-race").css("color", "black");
             $("#right-arrow-race").css("color", "black");
+        }
+    }
+}
+
+function per_race_resid_buttons_change(direction) {
+    current_race_resid = $('#current-race-resid').attr('data-current-race-resid');
+    current_race_resid_index = race_list.indexOf(current_race_resid);
+
+    if ( direction == "left" ) {
+        if ( current_race_resid_index <= 1 ) {
+            change_per_race_resid_data(race_list[0], chart_four);
+            $("#left-arrow-race-resid").css("color", "lightgrey");
+        } else {
+            change_per_race_resid_data(race_list[current_race_resid_index-1], chart_four);
+            $("#left-arrow-race-resid").css("color", "black");
+            $("#right-arrow-race-resid").css("color", "black");
+        }
+    } else {
+        if ( current_race_resid_index >= race_list.length - 2) {
+            change_per_race_resid_data(race_list[race_list.length - 1], chart_four);
+            $("#right-arrow-race-resid").css("color", "lightgrey");
+        } else {
+            change_per_race_resid_data(race_list[current_race_resid_index + 1], chart_four);
+            $("#left-arrow-race-resid").css("color", "black");
+            $("#right-arrow-race-resid").css("color", "black");
+        }
+    }
+}
+
+function cross_race_buttons_scatter_change(direction, axis) {
+    current_cross_race_x = $('#current-cross-race-x').attr('data-current-cross-race-x');
+    current_cross_race_y = $('#current-cross-race-y').attr('data-current-cross-race-y');
+    if ( axis == "x" ) {
+        current_cross_race_x_index = race_list.indexOf(current_cross_race_x);
+
+        if ( direction == "left" ) {
+            if ( current_cross_race_x_index <= 1 ) {
+                change_cross_race_scatter_data( race_list[0], current_cross_race_y, chart_five);
+                $("#left-arrow-cross-race-x").css("color", "lightgrey");
+            } else {
+                change_cross_race_scatter_data( race_list[current_cross_race_x_index-1], current_cross_race_y, chart_five );
+                $("#left-arrow-cross-race-x").css("color", "black");
+                $("#right-arrow-cross-race-x").css("color", "black");
+            }
+        } else {
+            if ( current_cross_race_x_index >= race_list.length - 2 ) {
+                change_cross_race_scatter_data( race_list[race_list.length - 1], current_cross_race_y, chart_five);
+                $("#right-arrow-cross-race-x").css("color", "lightgrey");
+            } else {
+                change_cross_race_scatter_data( race_list[current_cross_race_x_index + 1], current_cross_race_y, chart_five);
+                $("#left-arrow-cross-race-x").css("color", "black");
+                $("#right-arrow-cross-race-x").css("color", "black");
+            }
+        }
+    } else {
+        current_cross_race_y_index = race_list.indexOf(current_cross_race_y);
+
+        if ( direction == "left" ) {
+            if ( current_cross_race_y_index <= 1 ) {
+                change_cross_race_scatter_data( current_cross_race_x, race_list[0], chart_five);
+                $("#left-arrow-cross-race-y").css("color", "lightgrey");
+            } else {
+                change_cross_race_scatter_data( current_cross_race_x, race_list[current_cross_race_y_index-1], chart_five );
+                $("#left-arrow-cross-race-y").css("color", "black");
+                $("#right-arrow-cross-race-y").css("color", "black");
+            }
+        } else {
+            if ( current_cross_race_y_index >= race_list.length -2 ) {
+                change_cross_race_scatter_data( current_cross_race_x, race_list[race_list.length - 1], chart_five);
+                $("#right-arrow-cross-race-y").css("color", "lightgrey");
+            } else {
+                change_cross_race_scatter_data( current_cross_race_x,race_list[current_cross_race_y_index + 1], chart_five);
+                $("#left-arrow-cross-race-y").css("color", "black");
+                $("#right-arrow-cross-race-y").css("color", "black");
+            }
         }
     }
 }
