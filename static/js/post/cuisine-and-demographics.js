@@ -60,6 +60,10 @@ $(document).ready(function() {
     $("#left-arrow-race").click(function() {
         per_race_buttons_change('left')
     });
+
+    $('body, html').dblclick(function() {
+        event.preventDefault();
+    })
 });
 
 
@@ -117,7 +121,12 @@ function initialize_cat_to_dem_data() {
 // Initialize the graph for the radar chart with per-zip code data
 function initialize_per_zip_data(zip) {
     $('#current-zip-code').attr('data-current-zip', zip);
-    $('#current-zip-code').html(zip);
+    $('#current-zip-code').html(zip + " <hr><span>(City Loading)</span>");
+
+    $.get('http://maps.googleapis.com/maps/api/geocode/json?address=' + zip + '&sensor=false', function(data) {
+        $('#current-zip-code').html(zip + ' <hr><span>(' + data['results'][0]['address_components'][1]['long_name'] + ')</span>');
+    });
+    
     var per_zip_yelp_data = [];
     var per_zip_pop_data = [];
     get_per_zip_data(zip,per_zip_yelp_data,per_zip_pop_data);
@@ -247,7 +256,12 @@ function initialize_slr_data() {
 // Function to handle the updating of the per-zip-code chart. Does not actually do the calculations. Takes in a value of the target zip code you want and the chart to change, and passes them to the calculator function. The calculator function then populates empty data variables and returns those. The original chart specified is then updated using those new data variables. Helpers are also updated.
 function change_per_zip_data(zip, chart) {
     $('#current-zip-code').attr('data-current-zip', zip);
-    $('#current-zip-code').html(zip);
+    $('#current-zip-code').html(zip + " <hr><span>(City Loading)</span>");
+
+    $.get('http://maps.googleapis.com/maps/api/geocode/json?address=' + zip + '&sensor=false', function(data) {
+        $('#current-zip-code').html(zip + ' <hr><span>(' + data['results'][0]['address_components'][1]['long_name'] + ')</span>');
+    });
+
     var per_zip_yelp_data = [];
     var per_zip_pop_data = [];
     get_per_zip_data(zip,per_zip_yelp_data,per_zip_pop_data);

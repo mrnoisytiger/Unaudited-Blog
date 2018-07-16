@@ -103,9 +103,9 @@ With those considerations resolves, the Yelp API was scraped for the 50 zip code
 The following graphs represent a Per-Zip-Code comparison of the percent of restaurants per race, and the percent of calculated population per race. 
 
 <div class="lr-select">
-  <i class="fas fa-arrow-left" id="left-arrow-zip-code"></i>
+  <button><i class="fas fa-arrow-left two-line-arrow" id="left-arrow-zip-code"></i></button>
   <p id="current-zip-code"></p>
-  <i class="fas fa-arrow-right" id="right-arrow-zip-code"></i>
+  <button><i class="fas fa-arrow-right two-line-arrow" id="right-arrow-zip-code"></i></button>
 </div>
 <div class="canvas-div-xl"><canvas id="per-zip-comparison"></canvas></div>
 
@@ -118,9 +118,9 @@ Additionally, flipping through all the presented zip codes in succession, we not
 After seeing the per-zip-code data, it makes sense to dive into the predictive value of cuisine profile to racial profile. To do this, we'll look at each race separately in its own scatterplot and attempt to perform regression analysis on the data.
 
 <div class="lr-select">
-  <i class="fas fa-arrow-left" id="left-arrow-race"></i>
+  <button><i class="fas fa-arrow-left" id="left-arrow-race"></i></button>
   <p id="current-race"></p>
-  <i class="fas fa-arrow-right" id="right-arrow-race"></i>
+  <button><i class="fas fa-arrow-right" id="right-arrow-race"></i></button>
 </div>
 <div class="canvas-div-xl"><canvas id="per-race-comparison"></canvas></div>
 
@@ -128,7 +128,7 @@ Looking at our five races, we do indeed see upwards correlations for most of the
 
 #### Regression Analysis 
 
-To get a better sense of these exact trends, simple linear regressions were performed between the `Restaurant %` and `Population %`, taking the `Restaurant %` to be the independent variable. The results are summarized in the table below.
+To get a better sense of these exact trends, simple linear regressions were performed between the `Restaurant %` and `Population %`. For purposes of this cursory linear regression, we designate `Restaurant %` of the race we are consider to be the only independent variable. The results are summarized in the table below.
 
 <table id="simple-linear-reg">
 <tr>
@@ -183,6 +183,12 @@ These regressions indeed agree with our initial expectation from the data. There
   text-align: center;
 }
 
+.lr-select button {
+  background-color: rgba(0,0,0,0);
+  border: none;
+  outline:none;
+}
+
 .lr-select i, .lr-select p {
   display: inline-block;
   text-align: center;
@@ -192,17 +198,33 @@ These regressions indeed agree with our initial expectation from the data. There
 
 .lr-select p {
   padding: 0px 30px;
-  font-size: 1.1em;
+  font-size: 1em;
   font-weight: 600;
-  width: 130px;
+  width: 200px;
+}
+
+.lr-select .two-line-arrow {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .lr-select i:hover {
   cursor: pointer;
 }
 
-.lr-select i:first-child {
+.lr-select button:first-child i:first-child {
   color: lightgrey;
+}
+
+.lr-select hr {
+  width: 0px;
+  visibility: hidden;
+  margin: -8px;
+}
+
+.lr-select p span {
+  font-size: 0.8em !important;
 }
 
 table {
