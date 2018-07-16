@@ -128,7 +128,7 @@ Looking at our five races, we do indeed see upwards correlations for most of the
 
 #### Regression Analysis 
 
-To get a better sense of these exact trends, simple linear regressions were performed between the `Restaurant %` and `Population %`. For purposes of this cursory linear regression, we designate `Restaurant %` of the race we are consider to be the only independent variable. The results are summarized in the table below.
+To get a better sense of these exact trends, simple linear regressions were performed between the `Restaurant %` and `Population %`. For purposes of this cursory linear regression, we designate `Restaurant %` of the race we are consider to be the only independent variable. The results are summarized in the table below (p-values removed for brevity).
 
 <table id="simple-linear-reg">
 <tr>
