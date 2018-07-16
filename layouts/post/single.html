@@ -1,0 +1,72 @@
+{{ $.Scratch.Add "single" true }}
+
+{{ partial "head.html" . }}
+
+{{ range $library := .Params.require }}
+
+  <!-- Include ChartJS Library -->
+  {{ if eq $library "chartjs" }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+  {{ end }}
+
+  {{ if eq $library "chartjs-datalabels" }}
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.3.0"></script>
+  {{ end }}
+  
+  <!-- Include JStat Library -->
+  {{ if eq $library "jstat" }}
+  <script src="https://cdn.jsdelivr.net/npm/jstat@1.7.1/dist/jstat.min.js"></script>
+  {{ end }}
+
+  <!-- Include MathJAX Library -->
+  {{ if eq $library "latex" }}
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": { fonts: ["TeX"] }
+      });
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS_HTML' async></script>
+  {{end}}
+
+
+{{ end }}
+
+<div class="site-wrap">
+  {{ partial "header.html" . }}
+  <div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+      <div class="post-header mb2">
+        <h1 class="py2">{{ .Title }}</h1>
+        <span class="post-meta">{{ .Date.Format "Jan 2, 2006" }} by {{ .Params.author }}</span><br>
+        {{ $baseurl := .Site.BaseURL }}
+      </div>
+
+      {{ if eq .Params.toc true }}
+      <div id="table-of-contents">
+        {{ .TableOfContents }}
+      </div>
+      {{ end }}
+
+      <article class="post-content">
+      {{ .Content }}
+      </article>
+
+      <p class="post-meta">{{ i18n "tags" }}:&nbsp;
+        {{ range $i, $e := .Params.tags }}
+            {{if $i}},&nbsp;{{end}}
+            <a href="{{ $baseurl }}{{ $.Site.LanguagePrefix }}/tags/{{ . }}">{{ . }}</a>
+        {{ end }}
+      </p>
+
+      {{ partial "comments.html" . }}
+    </div>
+  </div>
+</div>
+{{ partial "footer.html" . }}
