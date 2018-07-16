@@ -98,6 +98,8 @@ With those considerations resolves, the Yelp API was scraped for the 50 zip code
 
 ## Graphs and Data
 
+Let's first look directly at some of the data gathered. We can compare the data across two major dimensions, the zip codes and race. We begin by examining the differences between the 50 zip codes used, to get an overview of what we are looking at. 
+
 ### Per-ZIP-Code Comparison
 
 The following graphs represent a Per-Zip-Code comparison of the percent of restaurants per race, and the percent of calculated population per race. 
