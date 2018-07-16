@@ -200,7 +200,7 @@ These regressions indeed agree with our initial expectation from the data. There
   padding: 0px 30px;
   font-size: 1em;
   font-weight: 600;
-  width: 200px;
+  width: 180px;
 }
 
 .lr-select .two-line-arrow {
@@ -224,7 +224,7 @@ These regressions indeed agree with our initial expectation from the data. There
 }
 
 .lr-select p span {
-  font-size: 0.8em !important;
+  font-size: 0.75em !important;
 }
 
 table {

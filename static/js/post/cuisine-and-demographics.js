@@ -123,7 +123,7 @@ function initialize_per_zip_data(zip) {
     $('#current-zip-code').attr('data-current-zip', zip);
     $('#current-zip-code').html(zip + " <hr><span>(City Loading)</span>");
 
-    $.get('http://maps.googleapis.com/maps/api/geocode/json?address=' + zip + '&sensor=false', function(data) {
+    $.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + zip + '&sensor=false', function(data) {
         $('#current-zip-code').html(zip + ' <hr><span>(' + data['results'][0]['address_components'][1]['long_name'] + ')</span>');
     });
     
@@ -258,7 +258,7 @@ function change_per_zip_data(zip, chart) {
     $('#current-zip-code').attr('data-current-zip', zip);
     $('#current-zip-code').html(zip + " <hr><span>(City Loading)</span>");
 
-    $.get('http://maps.googleapis.com/maps/api/geocode/json?address=' + zip + '&sensor=false', function(data) {
+    $.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + zip + '&sensor=false', function(data) {
         $('#current-zip-code').html(zip + ' <hr><span>(' + data['results'][0]['address_components'][1]['long_name'] + ')</span>');
     });
 
