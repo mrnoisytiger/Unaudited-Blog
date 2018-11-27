@@ -17,7 +17,6 @@ toc: true
 draft: false
 type: post
 ---
-
 Oftentimes, we go to a town we've never been to and notice, "There are a lot of Asian restaurants here!" Does that have a tendency to correlate to there actually being a lot of Asian people in the area? The same can be asked about any other cuisine and its associated race. Upon initial thought, one would agree that there should indeed be a pretty close correlation. Otherwise, who else would be eating there, cooking there, etc...? It's pretty clear that ethnicity would prefer their own cuisine as opposed to others. Therefore one would expect the spread of restaurants across race to somewhat mimic that of the racial profile of the population in the area. This post seeks to examine the possible link between these two, or lack thereof.
 
 ## Methodology
@@ -60,7 +59,7 @@ This query generates a list of 50 restaurants, displaying the restaurant's name 
 
 First off, Yelp's API only allows for a listing of 50 restaurants from this endpoint at a time and in total, only provides the first 1,000 restaurants in the particular zip code. Often, cities would have more than 1,000 restaurants, and most definitely more than 50. Therefore, for each ZIP code, the query was looped as many times as necessary to get all the restaurant data, each time changing the `offset` value to be 50 higher. As well, if a ZIP Code had more than 1,000 restaurants (which was the case for many), the data would be truncated to the first 1,000.
 
-Next, while Yelp does have category data for each of its restaurants listed, this data did not match exactly with racial markers. For example, a category for a restaurant might be `Korean`, whereas it actually corresponds to the race of `Asian`. A quick scan of Yelp's documentation revealed the [full list](https://www.yelp.com/developers/documentation/v2/category_list) of possible categories a restaurant could take. Then, a best effort attempt was made to allocate each Yelp category to a "race" designation. This was a bit tricky (and inevitably involves bias), because while these categories do mostly correspond to varying ethnicities, allocating them to fit "race" is not exactly a one-to-one task. For example, do we consider `Spanish` as "Hispanic/Latino" or "White"? What about `Filipino`, with influences from a variety of cultures? Such questions ultimately make the classification tricky and may inherently skew the data. As well, there were some Yelp categories which added little to no useful information, such as `salad` or `Food Court`. It's near impossible to say a specific race about a salad without knowing more, so categories like those were left out of consideration entirely. An allocated list of categories is available for download [here](ADD LINK TO DOWNLOAD). The number of categories allocated to each race is summarized in the chart below.
+Next, while Yelp does have category data for each of its restaurants listed, this data did not match exactly with racial markers. For example, a category for a restaurant might be `Korean`, whereas it actually corresponds to the race of `Asian`. A quick scan of Yelp's documentation revealed the [full list](https://www.yelp.com/developers/documentation/v2/category_list) of possible categories a restaurant could take. Then, a best effort attempt was made to allocate each Yelp category to a "race" designation. This was a bit tricky (and inevitably involves bias), because while these categories do mostly correspond to varying ethnicities, allocating them to fit "race" is not exactly a one-to-one task. For example, do we consider `Spanish` as "Hispanic/Latino" or "White"? What about `Filipino`, with influences from a variety of cultures? Such questions ultimately make the classification tricky and may inherently skew the data. As well, there were some Yelp categories which added little to no useful information, such as `salad` or `Food Court`. It's near impossible to say a specific race about a salad without knowing more, so categories like those were left out of consideration entirely. An allocated list of categories is available for download \[here](ADD LINK TO DOWNLOAD). The number of categories allocated to each race is summarized in the chart below.
 
 <div class="canvas-div"><canvas id="cats-to-dem"></canvas></div>
 
@@ -92,7 +91,7 @@ Next, while Yelp does have category data for each of its restaurants listed, thi
 </tr>
 </table><br> -->
 
-A similar issue arises if a restaurant crosses multiple categories and happens to traverse multiple races. What if a restaurant serves both Asian and Mexican food or is some kind of modern fusion between the two? In those cases, those restaurants were considered to exist in *both* categories. Therefore, some of the data in each zip code may appear to show more than 1,000 restaurants total, but this is merely an artifact of the classification done. One may ask why such a choice was made, to consider a restaurant in more than one race. To answer that, we look back at our existing question, whether cuisine correlates to race. If a restaurant crosses into more than one racial type, an assumption was made (may be presumptuous) that each racial type represented would be equally likely to eat at the restaurant, and that the restaurant panders to each of those races.
+A similar issue arises if a restaurant crosses multiple categories and happens to traverse multiple races. What if a restaurant serves both Asian and Mexican food or is some kind of modern fusion between the two? In those cases, those restaurants were considered to exist in _both_ categories. Therefore, some of the data in each zip code may appear to show more than 1,000 restaurants total, but this is merely an artifact of the classification done. One may ask why such a choice was made, to consider a restaurant in more than one race. To answer that, we look back at our existing question, whether cuisine correlates to race. If a restaurant crosses into more than one racial type, an assumption was made (may be presumptuous) that each racial type represented would be equally likely to eat at the restaurant, and that the restaurant panders to each of those races.
 
 With those considerations resolves, the Yelp API was scraped for the 90 zip codes discussed previously. The results were then processed and cataloged into the races discussed in the above section and the results tallied up. Again, given the possibility of multiple races being assigned to a single restaurant, some zip codes may have more than 1000 data points. 
 
@@ -126,9 +125,9 @@ After seeing the per-zip-code data, it makes sense to dive into the predictive v
 </div>
 <div class="canvas-div-xl"><canvas id="per-race-comparison"></canvas></div>
 
-Looking at our five races, we do indeed see upwards correlations for most of the sets, which agrees with our initial intuition—An area with more _____ cuisine would have more _____ people. However, the differing strengths in the correlation are also pretty clear. At a cursory glance, the `White`, `Asian` and `Hispanic` races exhibit strong upwards correlations between the percentage of restaurants and percentage of the population. This trend is much weaker for the `Black` and `Pacific Islander` races, possibly due to their dimunitive number of [categories allocated](#restaurant-ethnicity).
+Looking at our five races, we do indeed see upwards correlations for most of the sets, which agrees with our initial intuition—An area with more **_** cuisine would have more **_** people. However, the differing strengths in the correlation are also pretty clear. At a cursory glance, the `White`, `Asian` and `Hispanic` races exhibit strong upwards correlations between the percentage of restaurants and percentage of the population. This trend is much weaker for the `Black` and `Pacific Islander` races, possibly due to their dimunitive number of [categories allocated](#restaurant-ethnicity).
 
-#### Regression Analysis 
+#### Regression Analysis
 
 To get a better sense of these exact trends, simple linear regressions were performed between the `Restaurant %` and `Population %`. For purposes of this cursory linear regression, we designate `Restaurant %` of the race we are consider to be the only independent variable. The results are summarized in the table below (p-values removed for brevity).
 
@@ -184,7 +183,7 @@ Now that we have our linear regression data complete, we can perform a quick res
 </div>
 <div class="canvas-div-xl"><canvas id="per-race-resid-comparison"></canvas></div>
 
-Looking at these scatterplots, we notice a very stark trend in the `Asian` race that will have to be addressed later. Likely, the linear regression we used for the `Asian` data set is actually not a good fit, and another nonlinear regression may be better suited. Additionally, we notice a small cluster of points for the `Pacific Islander` race, but once again, we attribute this to the dimuinitive size and data set for that race.
+Looking at these scatterplots, we notice a very stark trend in the `Asian` race that will have to be addressed later. Likely, the linear regression we used for the `Asian` data set is actually not a good fit, and another nonlinear regression may be better suited. This is also seen, to a lesser extent, with the `White` and `Black` data sets. Additionally, we notice a small cluster of points for the `Pacific Islander` race, but once again, we attribute this to the diminutive size and data set for that race.
 
 ## Cross Racial Analysis
 
@@ -206,12 +205,9 @@ For examination of cross racial effects, we first take a look another similar sc
 </div>
 <div class="canvas-div-xl"><canvas id="cross-race-scatterplot"></canvas></div>
 
-Flipping through these scatterplots, our initial suspicion is generally confirmed. We do indeed notice a slight negative trend among the cross race data while intra-race data shows a positive trend. Armed with this bit of knowledge, 
+Flipping through these scatterplots, our initial suspicion is generally confirmed. We do indeed notice a slight negative trend among the cross race data while intra-race data shows a positive trend. Armed with this bit of knowledge, we can extend our regressions to a multiple regression. Not surprisingly, we can expect that a race's restaurant percentage would vary positively with that race and negatively with all other races.
 
 **Note: Not yet complete**
-
-
-
 
 <script src="/js/post/cuisine-and-demographics.js" type="text/javascript"></script>
 
