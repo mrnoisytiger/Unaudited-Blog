@@ -96,9 +96,9 @@ module.exports = function(grunt) {
             dist: {
                 command: 'find public/css/ -not -name "*css" -print0 | xargs -0 rm -rf --'
             }
-        },
+        }
 
-        pagespeed: {
+        /* pagespeed: {
             dist: {
                 options: {
                     nokey: true,
@@ -108,7 +108,7 @@ module.exports = function(grunt) {
                     threshold: 70
                 },
             }
-        }
+        } */
     });
 
     grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -119,8 +119,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-uncss');
     grunt.loadNpmTasks('grunt-shell');
-    grunt.loadNpmTasks('grunt-pagespeed');
+    // grunt.loadNpmTasks('grunt-pagespeed');
 
-    grunt.registerTask('default',['cssmin','concat_css','uglify','processhtml','htmlmin','imagemin','uncss','shell','pagespeed']);
+    grunt.registerTask('default',['cssmin','concat_css','uglify','processhtml','htmlmin','imagemin','uncss','shell']);
     
 };
