@@ -98,7 +98,8 @@ module.exports = function(grunt) {
             }
         }
 
-        /* pagespeed: {
+        /*  remove pagespeed broken
+        pagespeed: {
             dist: {
                 options: {
                     nokey: true,
